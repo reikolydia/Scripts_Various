@@ -1,0 +1,26 @@
+:local currentDNS [/ip dhcp-server network get [find] dns-server]
+:local piHoleDNS "< your PI-Hole IP address >"
+:local backupDNS "1.1.1.1"
+:local remoteDomain "one.one.one.one"
+:log warning "PI-Hole DNS check started.."
+
+:if ($currentDNS = $piHoleDNS) do={
+  :do {
+    :resolve $remoteDomain server=$piHoleDNS
+    :log info "PI-Hole ($piHoleDNS) is still up.."
+  } on-error={
+    :log error "PI-Hole ($piHoleDNS) is not responding!"
+    :log info "Setting backup DNS to: $backupDNS"
+    /ip dhcp-server network set 0 dns-server=$backupDNS
+  }
+} else={
+  :do {
+    :resolve $remoteDomain server=$piHoleDNS
+    :log info "PI-Hole ($piHoleDNS) is up!"
+    :log info "Setting DNS back to: $piHoleDNS"
+    /ip dhcp-server network set 0 dns-server=$piHoleDNS
+  } on-error={
+    :log error "PI-Hole ($piHoleDNS) is still not responding!"
+  }
+}
+:log warning "PI-Hole DNS check ended.."

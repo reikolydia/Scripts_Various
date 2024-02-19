@@ -1,0 +1,159 @@
+<HAScript name="CASA Deposit or Withdraw" description="" timeout="60000" pausetime="300" promptall="true" blockinput="false" author="A9997588" creationdate="30-Aug-2019 10:48:29" supressclearevents="false" usevars="true" ignorepauseforenhancedtn="true" delayifnotenhancedtn="0" ignorepausetimeforenhancedtn="true" continueontimeout="false">
+
+    <vars>
+      <create name="$casaaccno$" type="string" value="" />
+      <create name="$CCY$" type="string" value="" />
+      <create name="$trxcode$" type="string" value="" />
+      <create name="$amount$" type="integer" value="0" />
+      <create name="$jrn$" type="string" value="" />
+      <create name="$moneystatus$" type="string" value="" />
+      <create name="$amountshown$" type="double" value="0" />
+      <create name="$addorminus$" type="string" value="" />
+    </vars>
+
+
+    <screen name="Screen1" entryscreen="true" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="37" optional="true" invertmatch="false" />
+            <numinputfields number="5" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <prompt name="&apos;CASA Account No:&apos;" description="" row="0" col="0" len="80" default="" clearfield="false" encrypted="false" movecursor="true" xlatehostkeys="true" assigntovar="$casaaccno$" varupdateonly="true" required="true" title="" />
+            <prompt name="&apos;Currency:&apos;" description="" row="0" col="0" len="3" default="" clearfield="false" encrypted="false" movecursor="true" xlatehostkeys="true" assigntovar="$CCY$" varupdateonly="true" required="true" title="" />
+            <prompt name="&apos;Trx Code (Deposit: CA-3404, SA-1404, Withdrawal: CA-4801, SA-2801)&apos;" description="" row="0" col="0" len="4" default="" clearfield="false" encrypted="false" movecursor="true" xlatehostkeys="true" assigntovar="$trxcode$" varupdateonly="true" required="true" title="" />
+            <prompt name="&apos;Amount (E.g. $10 = 1000)&apos;" description="" row="0" col="0" len="80" default="" clearfield="false" encrypted="false" movecursor="true" xlatehostkeys="true" assigntovar="$amount$" varupdateonly="true" required="true" title="" />
+            <input value="&apos;[reset][reset]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <mouseclick row="6" col="53" />
+            <input value="&apos;uatua004[tab]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <input value="tc53O9Y97H7s63ThEVIiLhDKO5XiGkM9" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="true" />
+            <prompt name="&apos;Jrn Seq (random 9 number Unique)&apos;" description="" row="0" col="0" len="9" default="" clearfield="false" encrypted="false" movecursor="true" xlatehostkeys="true" assigntovar="$jrn$" varupdateonly="true" required="true" title="" />
+            <varupdate name="$amountshown$" value="($amount$ / 100)" />
+            <if condition="$trxcode$ == &apos;3404&apos;" >
+                  <varupdate name="$addorminus$" value="&apos;added&apos;" />
+            </if>
+            <if condition="$trxcode$ == &apos;1404&apos;" >
+                  <varupdate name="$addorminus$" value="&apos;added&apos;" />
+            </if>
+            <if condition="$trxcode$ == &apos;4801&apos;" >
+                  <varupdate name="$addorminus$" value="&apos;withdrawed&apos;" />
+            </if>
+            <if condition="$trxcode$ == &apos;2801&apos;" >
+                  <varupdate name="$addorminus$" value="&apos;withdrawed&apos;" />
+            </if>
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen2" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen2" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="24" optional="true" invertmatch="false" />
+            <numinputfields number="0" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen3" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen3" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="15" optional="true" invertmatch="false" />
+            <numinputfields number="0" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[enter][reset]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen4" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen4" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="100" optional="true" invertmatch="false" />
+            <numinputfields number="1" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[reset]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <input value="&apos;[reset]52[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen5" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen5" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="65" optional="true" invertmatch="false" />
+            <numinputfields number="1" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;1[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen6" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen6" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="333" optional="true" invertmatch="false" />
+            <numinputfields number="144" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;05501[tab]&apos;+$jrn$+&apos;[tab]e0&apos;+$trxcode$+&apos;[down][down][down][down][down][left][left]&apos;+$CCY$" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <input value="&apos;[down][tab][tab]&apos;+$casaaccno$" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <input value="&apos;[tab][tab]&apos;+$amount$+&apos;[tab][enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen7" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen7" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="252" optional="true" invertmatch="false" />
+            <numinputfields number="78" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen8" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen8" entryscreen="false" exitscreen="true" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <cursor row="1" col="1" optional="false" invertmatch="false" />
+            <numfields number="50" optional="true" invertmatch="false" />
+            <numinputfields number="0" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <boxselection type="SELECT" srow="4" scol="22" erow="4" ecol="23" />
+            <extract name="&apos;Extract&apos;" planetype="TEXT_PLANE" srow="4" scol="22" erow="4" ecol="23" unwrap="false" continuous="false" assigntovar="$moneystatus$" />
+            <if condition="$moneystatus$ == &apos;AA&apos;" >
+                  <message title="&apos;Status&apos;" value="&apos;$&apos;+$amountshown$+&apos; successfully &apos;+$addorminus$" />
+            </if>
+            <else>
+                  <message title="&apos;Status&apos;" value="&apos;The adding or withdrawing of money to CASA is unsuccessful&apos;" />
+            </else>
+            <input value="&apos;[pf12][pf3][pf12][pf12]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+        </nextscreens>
+    </screen>
+
+</HAScript>

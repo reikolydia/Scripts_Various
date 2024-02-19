@@ -1,0 +1,529 @@
+<HAScript name="AIO from CARD number" description="Given a card number, get ID, CIF, ACCESS code, PIN, EXPIRY date" timeout="60000" pausetime="300" promptall="true" blockinput="true" author="A9002008" creationdate="26-Nov-2020 12:00:00" supressclearevents="false" usevars="true" ignorepauseforenhancedtn="true" delayifnotenhancedtn="0" ignorepausetimeforenhancedtn="true" continueontimeout="false">
+
+    <vars>
+      <create name="$CARDnumber$" type="string" value="" />
+      <create name="$IDnumber$" type="string" value="" />
+      <create name="$CIFnumber$" type="string" value="" />
+      <create name="$ACCESScode$" type="string" value="" />
+      <create name="$PIN$" type="string" value="" />
+      <create name="$EXPIRYdate$" type="string" value="" />
+    </vars>
+
+
+    <screen name="Start" entryscreen="true" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+        </description>
+        <actions>
+            <prompt name="&apos;Enter CARD number:&apos;" description="" row="0" col="0" len="16" default="" clearfield="true" encrypted="false" movecursor="false" xlatehostkeys="false" assigntovar="$CARDnumber$" varupdateonly="true" required="true" title="&apos;Enter CARD number without spaces&apos;" />
+            <input value="&apos;6[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen2" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen2" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="1+&apos;[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen3" />
+        </nextscreens>
+        <recolimit value="10000" />
+    </screen>
+
+    <screen name="Screen3" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="1+&apos;[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen4" />
+        </nextscreens>
+        <recolimit value="10000" />
+    </screen>
+
+    <screen name="Screen4" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="$CARDnumber$" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <input value="&apos;[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen5" />
+        </nextscreens>
+        <recolimit value="10000" />
+    </screen>
+
+    <screen name="Screen5" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;x&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <input value="&apos;[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen6" />
+        </nextscreens>
+        <recolimit value="10000" />
+    </screen>
+
+    <screen name="Screen6" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="extractID" />
+        </nextscreens>
+        <recolimit value="10000" />
+    </screen>
+
+    <screen name="extractID" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+        </description>
+        <actions>
+            <boxselection type="SELECT" srow="5" scol="66" erow="5" ecol="74" />
+            <extract name="&apos;Extract&apos;" planetype="TEXT_PLANE" srow="5" scol="66" erow="5" ecol="74" unwrap="false" continuous="false" assigntovar="$IDnumber$" />
+            <input value="&apos;[copy]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <message title="&apos;ID NUMBER COPIED&apos;" value="&apos;ID NUMBER: &apos;+$IDnumber$" />
+            <input value="&apos;[pf12]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen8" />
+        </nextscreens>
+        <recolimit value="10000" />
+    </screen>
+
+    <screen name="Screen8" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[pf12]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen9" />
+        </nextscreens>
+        <recolimit value="10000" />
+    </screen>
+
+    <screen name="Screen9" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[pf12]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen10" />
+        </nextscreens>
+        <recolimit value="10000" />
+    </screen>
+
+    <screen name="Screen10" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[pf12]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen11" />
+        </nextscreens>
+        <recolimit value="10000" />
+    </screen>
+
+    <screen name="Screen11" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[pf12]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen12" />
+        </nextscreens>
+        <recolimit value="10000" />
+    </screen>
+
+    <screen name="Screen12" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;1&apos;+&apos;[enter]&apos;" row="20" col="7" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen13" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen13" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;7&apos;+&apos;[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen14" />
+        </nextscreens>
+        <recolimit value="10000" />
+    </screen>
+
+    <screen name="Screen14" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;1&apos;+&apos;[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen15" />
+        </nextscreens>
+        <recolimit value="10000" />
+    </screen>
+
+    <screen name="Screen15" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[tab]&apos;+$IDnumber$+&apos;[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <input value="&apos;5&apos;+&apos;[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="extractCIF" />
+        </nextscreens>
+        <recolimit value="10000" />
+    </screen>
+
+    <screen name="extractCIF" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+        </description>
+        <actions>
+            <boxselection type="SELECT" srow="4" scol="23" erow="4" ecol="32" />
+            <input value="&apos;[copy]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <extract name="&apos;Extract&apos;" planetype="TEXT_PLANE" srow="4" scol="23" erow="4" ecol="32" unwrap="false" continuous="false" assigntovar="$CIFnumber$" />
+            <message title="&apos;CIF NUMBER COPIED&apos;" value="&apos;CIF: &apos;+$CIFnumber$" />
+            <input value="&apos;[pf12]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen16" />
+        </nextscreens>
+        <recolimit value="10000" />
+    </screen>
+
+    <screen name="Screen16" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[pf12]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen17" />
+        </nextscreens>
+        <recolimit value="10000" />
+    </screen>
+
+    <screen name="Screen17" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[pf12]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen18" />
+        </nextscreens>
+        <recolimit value="10000" />
+    </screen>
+
+    <screen name="Screen18" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[pf12]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen19" />
+        </nextscreens>
+        <recolimit value="10000" />
+    </screen>
+
+    <screen name="Screen19" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;5[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen20" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen20" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;10[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen21" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen21" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;1[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen22" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen22" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[tab]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <input value="$CIFnumber$" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <input value="&apos;[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="extractACCESScode" />
+        </nextscreens>
+    </screen>
+
+    <screen name="extractACCESScode" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+        </description>
+        <actions>
+            <boxselection type="SELECT" srow="6" scol="16" erow="6" ecol="24" />
+            <input value="&apos;[copy]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <extract name="&apos;Extract&apos;" planetype="TEXT_PLANE" srow="6" scol="16" erow="6" ecol="24" unwrap="false" continuous="false" assigntovar="$ACCESScode$" />
+            <message title="&apos;ACCESS CODE COPIED&apos;" value="&apos;ACCESS CODE: &apos;+$ACCESScode$" />
+            <input value="&apos;[pf12]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen23" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen23" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[pf12]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen24" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen24" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[pf12]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen25" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen25" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;32[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen26" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen26" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="3" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <input value="$ACCESScode$" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <input value="&apos;[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="extractPIN" />
+        </nextscreens>
+    </screen>
+
+    <screen name="extractPIN" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+        </description>
+        <actions>
+            <boxselection type="SELECT" srow="11" scol="27" erow="11" ecol="32" />
+            <input value="&apos;[copy]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <extract name="&apos;Extract&apos;" planetype="TEXT_PLANE" srow="11" scol="27" erow="11" ecol="32" unwrap="false" continuous="false" assigntovar="$PIN$" />
+            <message title="&apos;PIN COPIED&apos;" value="&apos;PIN NUMBER: &apos;+$PIN$" />
+            <input value="&apos;[pf12]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen27" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen27" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[pf3]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen28" />
+        </nextscreens>
+        <recolimit value="10000" />
+    </screen>
+
+    <screen name="Screen28" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[pf12]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen29" />
+        </nextscreens>
+        <recolimit value="10000" />
+    </screen>
+
+    <screen name="Screen29" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;6[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen30" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen30" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;1[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen31" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen31" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;4[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen32" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen32" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="$CARDnumber$" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <input value="&apos;[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="extractEXPIRYdate" />
+        </nextscreens>
+    </screen>
+
+    <screen name="extractEXPIRYdate" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+        </description>
+        <actions>
+            <boxselection type="SELECT" srow="6" scol="68" erow="6" ecol="72" />
+            <input value="&apos;[copy]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <extract name="&apos;Extract&apos;" planetype="TEXT_PLANE" srow="6" scol="68" erow="6" ecol="72" unwrap="false" continuous="false" assigntovar="$EXPIRYdate$" />
+            <message title="&apos;EXPIRY DATE COPIED&apos;" value="&apos;EXPIRY DATE: &apos;+$EXPIRYdate$" />
+            <input value="&apos;[pf12]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen33" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen33" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[pf12]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen34" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen34" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[pf12]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen35" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen35" entryscreen="false" exitscreen="true" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[pf12]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <message title="&apos;MACRO COMPLETE&apos;" value="&apos;MACRO COMPLETE&apos;" />
+        </actions>
+        <nextscreens timeout="0" >
+        </nextscreens>
+    </screen>
+
+</HAScript>

@@ -1,0 +1,54 @@
+<HAScript name="ID FINDER" description="Acquires all identifying information from 1 or many sources of provided information" timeout="60000" pausetime="300" promptall="true" blockinput="true" author="A9002008" creationdate="23-Nov-2020 17:32:54" supressclearevents="false" usevars="true" ignorepauseforenhancedtn="true" delayifnotenhancedtn="0" ignorepausetimeforenhancedtn="true" continueontimeout="false">
+
+    <vars>
+      <create name="$IDnumber$" type="string" value="" />
+      <create name="$IDcheck$" type="boolean" value="false" />
+      <create name="$CIFcheck$" type="boolean" value="false" />
+      <create name="$CIFnumber$" type="string" value="" />
+      <create name="$ACcheck$" type="boolean" value="false" />
+      <create name="$ACnumber$" type="string" value="" />
+      <create name="$CARDnumber$" type="string" value="" />
+      <create name="$CARDcheck$" type="boolean" value="false" />
+    </vars>
+
+
+    <screen name="Screen1" entryscreen="true" exitscreen="true" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+        </description>
+        <actions>
+            <prompt name="&apos;IC/ID number:&apos;" description="" row="0" col="0" len="10" default="" clearfield="true" encrypted="false" movecursor="false" xlatehostkeys="false" assigntovar="$IDnumber$" varupdateonly="true" required="false" title="&apos;Information Prompt&apos;" />
+            <if condition="$IDnumber$ != &apos;&apos;" >
+                  <varupdate name="$IDcheck$" value="TRUE" />
+            </if>
+            <else>
+                  <varupdate name="$IDcheck$" value="FALSE" />
+            </else>
+            <prompt name="&apos;CIF number:&apos;" description="" row="0" col="0" len="10" default="" clearfield="true" encrypted="false" movecursor="false" xlatehostkeys="false" assigntovar="$CIFnumber$" varupdateonly="true" required="false" title="&apos;Information Prompt&apos;" />
+            <if condition="$CIFnumber$ != &apos;&apos;" >
+                  <varupdate name="$CIFcheck$" value="TRUE" />
+            </if>
+            <else>
+                  <varupdate name="$CIFcheck$" value="FALSE" />
+            </else>
+            <prompt name="&apos;ACCESS code:&apos;" description="" row="0" col="0" len="10" default="" clearfield="true" encrypted="false" movecursor="false" xlatehostkeys="false" assigntovar="$ACnumber$" varupdateonly="true" required="false" title="&apos;Information Prompt&apos;" />
+            <if condition="$ACnumber$ != &apos;&apos;" >
+                  <varupdate name="$ACcheck$" value="TRUE" />
+            </if>
+            <else>
+                  <varupdate name="$IDnumber$" value="FALSE" />
+            </else>
+            <prompt name="&apos;16 DIGIT CARD number:&apos;" description="" row="0" col="0" len="16" default="" clearfield="true" encrypted="false" movecursor="false" xlatehostkeys="false" assigntovar="$CARDnumber$" varupdateonly="true" required="false" title="&apos;Information Prompt&apos;" />
+            <if condition="$CARDnumber$ != &apos;&apos;" >
+                  <varupdate name="$CARDcheck$" value="TRUE" />
+            </if>
+            <else>
+                  <varupdate name="$CARDcheck$" value="FALSE" />
+            </else>
+            <message title="&apos;TEST&apos;" value="&apos;ID: &apos;+$IDcheck$+&apos;, CIF: &apos;+$CIFcheck$+&apos;, ACCESS: &apos;+$ACcheck$+&apos;, Card: &apos;+$CARDcheck$" />
+        </actions>
+        <nextscreens timeout="0" >
+        </nextscreens>
+    </screen>
+
+</HAScript>

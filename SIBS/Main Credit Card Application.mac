@@ -1,0 +1,953 @@
+<HAScript name="Main Credit Card Application" description="" timeout="60000" pausetime="400" promptall="true" blockinput="false" author="A9997588" creationdate="02-Sep-2019 18:39:04" supressclearevents="false" usevars="true" ignorepauseforenhancedtn="true" delayifnotenhancedtn="0" ignorepausetimeforenhancedtn="true" continueontimeout="false">
+
+    <vars>
+      <create name="$idnumber$" type="string" value="" />
+      <create name="$name$" type="string" value="" />
+      <create name="$idtype$" type="string" value="" />
+      <create name="$idcountry$" type="string" value="" />
+      <create name="$phone$" type="string" value="" />
+      <create name="$appno$" type="string" value="" />
+      <create name="$cardno$" type="string" value="" />
+      <create name="$CIF$" type="string" value="" />
+      <create name="$cardtype$" type="string" value="" />
+    </vars>
+
+
+    <screen name="Screen1" entryscreen="true" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="37" optional="true" invertmatch="false" />
+            <numinputfields number="5" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <prompt name="&apos;CIF:&apos;" description="" row="0" col="0" len="15" default="" clearfield="false" encrypted="false" movecursor="true" xlatehostkeys="true" assigntovar="$CIF$" varupdateonly="true" required="true" title="" />
+            <prompt name="&apos;Card Type:&apos;" description="" row="0" col="0" len="6" default="" clearfield="false" encrypted="false" movecursor="true" xlatehostkeys="true" assigntovar="$cardtype$" varupdateonly="true" required="true" title="" />
+            <input value="&apos;[reset][reset]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <mouseclick row="6" col="53" />
+            <input value="&apos;uatua004[tab]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <input value="tc53O9Y97H7s63ThEVIiLhDKO5XiGkM9" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="true" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen2" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen2" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="24" optional="true" invertmatch="false" />
+            <numinputfields number="0" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen3" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen3" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="100" optional="true" invertmatch="false" />
+            <numinputfields number="1" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen4" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen4" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="99" optional="true" invertmatch="false" />
+            <numinputfields number="1" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <input value="&apos;[reset]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen5" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen5" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="99" optional="true" invertmatch="false" />
+            <numinputfields number="1" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[reset]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen6" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen6" entryscreen="true" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;1[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen7" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen7" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="100" optional="true" invertmatch="false" />
+            <numinputfields number="1" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;7[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen8" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen8" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="100" optional="true" invertmatch="false" />
+            <numinputfields number="1" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;1[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen9" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen9" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="61" optional="true" invertmatch="false" />
+            <numinputfields number="4" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[tab][tab]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <input value="$CIF$" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <input value="&apos;[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen10" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen10" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="81" optional="true" invertmatch="false" />
+            <numinputfields number="5" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;5[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen11" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen11" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="132" optional="true" invertmatch="false" />
+            <numinputfields number="0" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <boxselection type="SELECT" srow="5" scol="17" erow="5" ecol="42" />
+            <extract name="&apos;Extract&apos;" planetype="TEXT_PLANE" srow="5" scol="17" erow="5" ecol="42" unwrap="false" continuous="false" assigntovar="$name$" />
+            <input value="&apos;[copy]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <boxselection type="DESELECT" />
+            <boxselection type="SELECT" srow="4" scol="64" erow="4" ecol="76" />
+            <extract name="&apos;Extract&apos;" planetype="TEXT_PLANE" srow="4" scol="64" erow="4" ecol="76" unwrap="false" continuous="false" assigntovar="$idnumber$" />
+            <input value="&apos;[copy]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <boxselection type="DESELECT" />
+            <boxselection type="SELECT" srow="7" scol="26" erow="7" ecol="27" />
+            <extract name="&apos;Extract&apos;" planetype="TEXT_PLANE" srow="7" scol="26" erow="7" ecol="27" unwrap="false" continuous="false" assigntovar="$idtype$" />
+            <input value="&apos;[copy]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <boxselection type="DESELECT" />
+            <boxselection type="SELECT" srow="8" scol="26" erow="8" ecol="27" />
+            <extract name="&apos;Extract&apos;" planetype="TEXT_PLANE" srow="8" scol="26" erow="8" ecol="27" unwrap="false" continuous="false" assigntovar="$idcountry$" />
+            <input value="&apos;[copy]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <boxselection type="DESELECT" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen12" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen12" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="93" optional="true" invertmatch="false" />
+            <numinputfields number="3" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[pf12][pf12][pf12][pf12]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen13" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen13" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="100" optional="true" invertmatch="false" />
+            <numinputfields number="1" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;6[enter]7[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen14" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen14" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="100" optional="true" invertmatch="false" />
+            <numinputfields number="1" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;23[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen15" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen15" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="39" optional="true" invertmatch="false" />
+            <numinputfields number="4" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="$cardtype$" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <input value="&apos;[tab][tab]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <input value="$idnumber$" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <input value="&apos;[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen16" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen16" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="63" optional="true" invertmatch="false" />
+            <numinputfields number="2" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="uWo7PDA7SNU=" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="true" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen17" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen17" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="48" optional="true" invertmatch="false" />
+            <numinputfields number="6" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="$name$" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <input value="&apos;[tab][tab][tab]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <input value="$idtype$" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <input value="$idcountry$" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <input value="&apos;[tab]11111999[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen18" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen18" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="49" optional="true" invertmatch="false" />
+            <numinputfields number="1" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;1[enter][enter][enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen19" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen19" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="133" optional="true" invertmatch="false" />
+            <numinputfields number="23" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[reset][tab]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <mouseclick row="9" col="72" />
+            <boxselection type="SELECT" srow="9" scol="72" erow="9" ecol="72" />
+            <input value="&apos;u&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <input value="&apos;[tab][tab]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <input value="$name$" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <mouseclick row="11" col="72" />
+            <input value="&apos;1018 &apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <input value="&apos;[tab][tab][tab][tab][tab][tab][tab][tab][tab]norg[tab][tab][tab][tab][tab]mum[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen20" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen20" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="133" optional="true" invertmatch="false" />
+            <numinputfields number="0" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen21" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen21" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="115" optional="true" invertmatch="false" />
+            <numinputfields number="20" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;employer name test[tab][tab]1per[tab]othpf[tab]nil[tab]1000000[tab][tab][tab]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <input value="$phone$" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <input value="&apos;[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen22" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen22" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="81" optional="true" invertmatch="false" />
+            <numinputfields number="11" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen23" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen23" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="81" optional="true" invertmatch="false" />
+            <numinputfields number="0" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen24" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen24" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="93" optional="true" invertmatch="false" />
+            <numinputfields number="11" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen25" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen25" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="58" optional="true" invertmatch="false" />
+            <numinputfields number="0" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;1[pf7]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen30" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen30" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="154" optional="true" invertmatch="false" />
+            <numinputfields number="36" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[tab]001[tab]n[tab]at0001[tab][tab][tab]     100000     100000 1[backspace]    100000     100000     100000[tab][tab][tab][tab][tab]     1[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen31" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen31" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="153" optional="true" invertmatch="false" />
+            <numinputfields number="25" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[tab][tab][tab][tab][tab][tab][tab][tab][tab][tab][tab][tab][tab][tab][tab][tab][tab][tab]a05&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <if condition="$cardtype$ == &apos;MXFRKV&apos;" >
+                  <input value="&apos;[tab][tab][tab][tab][tab][tab]bas0001[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            </if>
+            <else>
+                  <input value="&apos;[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            </else>
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen32" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen32" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="142" optional="true" invertmatch="false" />
+            <numinputfields number="0" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen33" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen33" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="99" optional="true" invertmatch="false" />
+            <numinputfields number="7" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen34" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen34" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="99" optional="true" invertmatch="false" />
+            <numinputfields number="0" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen35" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen35" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="99" optional="true" invertmatch="false" />
+            <numinputfields number="0" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen36" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen36" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="144" optional="true" invertmatch="false" />
+            <numinputfields number="0" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen37" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen37" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="39" optional="true" invertmatch="false" />
+            <numinputfields number="4" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <boxselection type="SELECT" srow="10" scol="24" erow="10" ecol="34" />
+            <extract name="&apos;Extract&apos;" planetype="TEXT_PLANE" srow="10" scol="24" erow="10" ecol="34" unwrap="false" continuous="false" assigntovar="$appno$" />
+            <boxselection type="DESELECT" />
+            <input value="&apos;[pf12]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen38" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen38" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="100" optional="true" invertmatch="false" />
+            <numinputfields number="1" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[pf12]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen39" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen39" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="100" optional="true" invertmatch="false" />
+            <numinputfields number="1" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[pf12]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen40" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen40" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="100" optional="true" invertmatch="false" />
+            <numinputfields number="1" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[pf12]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen41" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen41" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="37" optional="true" invertmatch="false" />
+            <numinputfields number="5" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;uatua001[tab]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <input value="tc53O9Y97H7s63ThEVIiLhDKO5XiGkM9" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="true" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen42" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen42" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="24" optional="true" invertmatch="false" />
+            <numinputfields number="0" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen43" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen43" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="100" optional="true" invertmatch="false" />
+            <numinputfields number="1" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[enter][reset]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen44" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen44" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="99" optional="true" invertmatch="false" />
+            <numinputfields number="1" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[reset]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen45" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen45" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="99" optional="true" invertmatch="false" />
+            <numinputfields number="1" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[reset]6[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen46" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen46" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="100" optional="true" invertmatch="false" />
+            <numinputfields number="1" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;7[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen47" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen47" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="100" optional="true" invertmatch="false" />
+            <numinputfields number="1" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;27[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen48" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen48" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="37" optional="true" invertmatch="false" />
+            <numinputfields number="5" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[tab]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <input value="$appno$" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <input value="&apos;[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen49" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen49" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="48" optional="true" invertmatch="false" />
+            <numinputfields number="4" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[tab][tab][tab]x[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen50" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen50" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="140" optional="true" invertmatch="false" />
+            <numinputfields number="0" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen51" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen51" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="115" optional="true" invertmatch="false" />
+            <numinputfields number="0" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen52" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen52" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="95" optional="true" invertmatch="false" />
+            <numinputfields number="0" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen53" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen53" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="79" optional="true" invertmatch="false" />
+            <numinputfields number="1" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[pf7]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen54" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen54" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="145" optional="true" invertmatch="false" />
+            <numinputfields number="0" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen55" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen55" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="152" optional="true" invertmatch="false" />
+            <numinputfields number="1" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[pf5]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen56" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen56" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="145" optional="true" invertmatch="false" />
+            <numinputfields number="0" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[pf5]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen57" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen57" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="145" optional="true" invertmatch="false" />
+            <numinputfields number="0" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen58" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen58" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="101" optional="true" invertmatch="false" />
+            <numinputfields number="0" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[pf5]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen59" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen59" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="99" optional="true" invertmatch="false" />
+            <numinputfields number="0" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen60" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen60" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="99" optional="true" invertmatch="false" />
+            <numinputfields number="0" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <pause value="2000" />
+            <boxselection type="SELECT" srow="9" scol="31" erow="9" ecol="46" />
+            <extract name="&apos;Extract&apos;" planetype="TEXT_PLANE" srow="9" scol="31" erow="9" ecol="46" unwrap="false" continuous="false" assigntovar="$cardno$" />
+            <input value="&apos;[copy]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <boxselection type="DESELECT" />
+            <input value="&apos;[pf12]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen61" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen61" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="145" optional="true" invertmatch="false" />
+            <numinputfields number="0" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[pf12]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen62" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen62" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="145" optional="true" invertmatch="false" />
+            <numinputfields number="0" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[pf12]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen63" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen63" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="34" optional="true" invertmatch="false" />
+            <numinputfields number="3" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[pf12]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen64" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen64" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="38" optional="true" invertmatch="false" />
+            <numinputfields number="5" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[pf12]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen65" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen65" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="100" optional="true" invertmatch="false" />
+            <numinputfields number="1" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[pf12]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen66" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen66" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="100" optional="true" invertmatch="false" />
+            <numinputfields number="1" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[pf12]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen67" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen67" entryscreen="false" exitscreen="true" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="100" optional="true" invertmatch="false" />
+            <numinputfields number="1" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[pf12][pf12][reset]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <message title="&apos;Status&apos;" value="&apos;Credit Card Number(&apos;+$cardno$+&apos;)is successfully created for CIF &apos;+$CIF$+&apos;.&apos;" />
+        </actions>
+        <nextscreens timeout="0" >
+        </nextscreens>
+    </screen>
+
+</HAScript>

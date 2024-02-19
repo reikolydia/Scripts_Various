@@ -1,0 +1,139 @@
+<HAScript name="Create CASA Account" description="" timeout="180000" pausetime="300" promptall="true" blockinput="false" author="A9997588" creationdate="30-Aug-2019 10:44:05" supressclearevents="false" usevars="true" ignorepauseforenhancedtn="true" delayifnotenhancedtn="0" ignorepausetimeforenhancedtn="true" continueontimeout="false">
+
+    <vars>
+      <create name="$CIF$" type="string" value="" />
+      <create name="$trxcode$" type="string" value="" />
+      <create name="$CCY$" type="string" value="" />
+      <create name="$prodcode$" type="string" value="" />
+    </vars>
+
+
+    <screen name="Screen1" entryscreen="true" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="37" optional="true" invertmatch="false" />
+            <numinputfields number="5" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[reset][reset]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <mouseclick row="6" col="53" />
+            <prompt name="&apos;CIF No:&apos;" description="" row="0" col="0" len="15" default="" clearfield="false" encrypted="false" movecursor="true" xlatehostkeys="true" assigntovar="$CIF$" varupdateonly="true" required="true" title="" />
+            <prompt name="&apos;Trx Code (CA:3191, SA:1191)&apos;" description="" row="0" col="0" len="4" default="" clearfield="false" encrypted="false" movecursor="true" xlatehostkeys="true" assigntovar="$trxcode$" varupdateonly="true" required="true" title="" />
+            <prompt name="&apos;Currency:&apos;" description="" row="0" col="0" len="3" default="" clearfield="false" encrypted="false" movecursor="true" xlatehostkeys="true" assigntovar="$CCY$" varupdateonly="true" required="true" title="" />
+            <prompt name="&apos;Product Code:&apos;" description="" row="0" col="0" len="2" default="" clearfield="false" encrypted="false" movecursor="true" xlatehostkeys="true" assigntovar="$prodcode$" varupdateonly="true" required="true" title="" />
+            <input value="&apos;uatua004[tab]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <input value="tc53O9Y97H7s63ThEVIiLhDKO5XiGkM9" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="true" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen2" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen2" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="24" optional="true" invertmatch="false" />
+            <numinputfields number="0" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen3" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen3" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="15" optional="true" invertmatch="false" />
+            <numinputfields number="0" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen4" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen4" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="100" optional="true" invertmatch="false" />
+            <numinputfields number="1" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[reset]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <input value="&apos;[reset]50[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen5" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen5" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="65" optional="true" invertmatch="false" />
+            <numinputfields number="1" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;1[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen6" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen6" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="205" optional="true" invertmatch="false" />
+            <numinputfields number="73" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;05501uatua004[tab]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <input value="$trxcode$+&apos;[tab][tab][tab][tab][tab][tab]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <input value="$CCY$+&apos;[down][right][right][right][down][right][down][right]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <input value="&apos;i11[tab]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <input value="&apos;[paste]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <input value="&apos;[tab][enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen7" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen7" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="97" optional="true" invertmatch="false" />
+            <numinputfields number="29" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[tab][tab][tab][tab][tab][tab]&apos;+$prodcode$+&apos;[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen8" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen8" entryscreen="false" exitscreen="true" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <cursor row="1" col="1" optional="false" invertmatch="false" />
+            <numfields number="19" optional="true" invertmatch="false" />
+            <numinputfields number="0" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <boxselection type="SELECT" srow="7" scol="16" erow="7" ecol="27" />
+            <input value="&apos;[copy]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <message title="&apos;Reminder&apos;" value="&apos;The Account Number is copied, please paste in your excel record.&apos;" />
+            <input value="&apos;[pf12][pf3][pf12][pf12]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+        </nextscreens>
+    </screen>
+
+</HAScript>

@@ -1,0 +1,32 @@
+:local arrNtpSystems ("time.cloudflare.com", "time.google.com");
+:local progName "UpdateNTP";
+
+:log warning message="START: Updating NTP Servers"
+:set arrNtpSystems [ :toarray $arrNtpSystems ]
+:if (( [ :len $arrNtpSystems ] < 1 ) or ( [ :len $arrNtpSystems ] > 2 )) do={ 
+    :put "$progName: ERROR NTP Systems array (\$arrNtpSystems) must be either one or two DNS names."
+    :log error "$progName: ERROR NTP Systems array (\$arrNtpSystems) must be either one or two DNS names."
+} else={
+    :local arrRosNtpSetting ("primary-ntp", "secondary-ntp")
+    :local i 0
+    :foreach strNtpSystem in ($arrNtpSystems) do={
+        :local ipAddrNtpSystem [ :resolve $strNtpSystem ]
+        :local strRosNtpSetting [ :pick $arrRosNtpSetting $i ]
+        :local strCurrentNtpIp [ /system ntp client get $strRosNtpSetting ]
+        :put "$progName: NTP server DNS name $strNtpSystem resolves to $ipAddrNtpSystem."
+        :log info "$progName: NTP server DNS name $strNtpSystem resolves to $ipAddrNtpSystem."
+        :put "$progName: Current $strRosNtpSetting setting is $strCurrentNtpIp."
+        :log info "$progName: Current $strRosNtpSetting setting is $strCurrentNtpIp."
+        :if ( [ :toip $ipAddrNtpSystem ] != [ :toip $strCurrentNtpIp ] ) do={
+            :put "$progName: Changing $strRosNtpSetting setting to $ipAddrNtpSystem."
+            :log error "$progName: Changing $strRosNtpSetting setting to $ipAddrNtpSystem."
+            :local strCommand [ :parse "/system ntp client set $strRosNtpSetting=\"$ipAddrNtpSystem\""  ]
+            $strCommand
+        } else={
+            :put "$progName: No changes were made for the $strRosNtpSetting NTP setting."
+            :log error "$progName: No changes were made for the $strRosNtpSetting NTP setting."
+        }
+        :set i ($i + 1)
+    }
+}
+:log warning message="END: Updating NTP Servers"

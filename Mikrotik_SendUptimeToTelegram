@@ -1,0 +1,36 @@
+:global lastTime;
+
+:global output;
+
+:global mtIdentity [/system identity get name];
+
+:global botID "<BOT ID>";
+
+:global myChatID "<CHAT ID>";
+
+:local uptimehms;
+:local uptime;
+:local days;
+:local weeks;
+:local hours;
+:local daypos;
+:set daypos (0);
+
+:set uptime [/system resource get uptime];
+
+:for pos from=0 to=([:len $uptime] - 8) do={
+  :if ([:pick $uptime $pos] = "w") do={
+:set weeks ( [:pick $uptime 0 ($pos)] );
+:set daypos ($pos+1);
+   }
+   :if ([:pick $uptime $pos] = "d") do={
+:set days ( [:pick $uptime ($daypos) ($pos)] );
+   }
+}
+# Recalculate hours and add :min:sec
+:set hours ([:pick $uptime ([:len $uptime]-8) ([:len $uptime]-6)]);
+:set uptimehms ([:tostr (($weeks * 24 * 7) + ($days * 24) + $hours)].("H ").([:pick $uptime ([:len $uptime]-5) ([:len $uptime]-3)]).("M"));
+
+:set output "%0ADevice Uptime: $uptimehms";
+
+:tool fetch url=("https://api.telegram.org/$botID/sendmessage\?chat_id=$myChatID&text=%E2%9B%BA\"$mtIdentity\"$output") keep-result=no

@@ -1,0 +1,65 @@
+# API call format:
+# https://#USERNAME:$API_KEY@ipv4.tunnelbroker.net/nic/update?username=$USERNAME&password=$API_KEY&hostname=$TUNNEL_ID
+
+# Router's WAN interface name
+:local WANinterface "RJ45-02-WAN-1"
+
+# Router's 6to4 interface name
+:local HEtunnelinterface "HEnet-IPv6-Tunnel"
+
+# Your username - you use it to log in at https://tunnelbroker.net
+:local HEuserid "<USERNAME>"
+
+# Tunnel ID (not name) as written in your tunnel's details at https://tunnelbroker.net
+:local HEtunnelid "<ID>"
+
+# Your Update Key for this tunnel, as written in the "Advanced" tab on tunnel details page
+:local HEkey "<KEY>"
+
+# ----------------------------------
+# STOP modifying here
+# ----------------------------------
+# Internal processing below...
+# ----------------------------------
+:local HEupdatehost "ipv4.tunnelbroker.net"
+:local HEupdatepath "/nic/update?"
+:local outputfile ("HE-" . $HEtunnelid . ".txt")
+:local HEipv4addr
+
+# Get WAN interface IP address
+:set HEipv4addr [/ip address get [/ip address find interface=$WANinterface] address]
+:set HEipv4addr [:pick [:tostr $HEipv4addr] 0 [:find [:tostr $HEipv4addr] "/"]]
+
+:if ([:len $HEipv4addr] = 0) do={
+   :log error ("Could not get IP for interface " . $WANinterface)
+   :error ("Could not get IP for interface " . $WANinterface)
+}
+
+# Update the HEtunnelinterface with WAN IP
+/interface 6to4 {
+    :if ([get ($HEtunnelinterface) local-address] != $HEipv4addr) do={
+        :log info ("Updating IPv6 Tunnel " . $HEtunnelid . " Client IPv4 address to new IP " . $HEipv4addr . "...")
+        disable $HEtunnelinterface
+
+        /tool fetch mode=https host=($HEupdatehost) url=("https://" . $HEuserid . ":" . $HEkey . "@" . $HEupdatehost . $HEupdatepath . "&username=" . $HEuserid . "&pass=" . $HEkey . "&hostname=" . $HEtunnelid) dst-path=($outputfile)
+
+        # Change the client IPv4 address
+        set ($HEtunnelinterface) local-address=$HEipv4addr
+
+        # I like to make a little pause before enabling the interface
+        /delay 3
+        
+        # Enable the IPv6 interface
+        enable $HEtunnelinterface 
+
+        # Append the file to log for review
+        :log info ([/file get ($outputfile) contents])
+        
+        # Clean up after ourselves
+        /file remove ($outputfile)
+        
+    } else={
+        # If client's IPv4 didn't change at all, put it in the log so that we know the script is working
+        :log info ("Updating " . $HEtunnelinterface . " No change, IP is still " . $HEipv4addr )
+    }   
+}

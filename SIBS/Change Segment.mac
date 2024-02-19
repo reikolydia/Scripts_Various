@@ -1,0 +1,177 @@
+<HAScript name="Change Segment" description="" timeout="60000" pausetime="300" promptall="true" blockinput="false" author="A9997588" creationdate="26-Sep-2019 18:34:47" supressclearevents="false" usevars="true" ignorepauseforenhancedtn="true" delayifnotenhancedtn="0" ignorepausetimeforenhancedtn="true" continueontimeout="false">
+
+    <vars>
+      <create name="$CIF$" type="integer" value="0" />
+      <create name="$segmentcode$" type="string" value="" />
+      <create name="$officerid$" type="string" value="" />
+      <create name="$date1$" type="integer" value="0" />
+      <create name="$date2$" type="string" value="0" />
+      <create name="$date3$" type="integer" value="0" />
+      <create name="$finaldate$" type="integer" value="0" />
+      <create name="$segmentname$" type="string" value="" />
+    </vars>
+
+
+    <screen name="Screen1" entryscreen="true" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="37" optional="true" invertmatch="false" />
+            <numinputfields number="5" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <prompt name="&apos;CIF:&apos;" description="" row="0" col="0" len="15" default="" clearfield="false" encrypted="false" movecursor="true" xlatehostkeys="true" assigntovar="$CIF$" varupdateonly="true" required="true" title="" />
+            <prompt name="&apos;Segment Code (M, K, P, Q, X, Y):&apos;" description="" row="0" col="0" len="1" default="" clearfield="false" encrypted="false" movecursor="true" xlatehostkeys="true" assigntovar="$segmentcode$" varupdateonly="true" required="true" title="" />
+            <input value="&apos;[reset][reset]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <mouseclick row="6" col="53" />
+            <input value="&apos;uatua004[tab]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <input value="tc53O9Y97H7s63ThEVIiLhDKO5XiGkM9" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="true" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen2" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen2" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="24" optional="true" invertmatch="false" />
+            <numinputfields number="0" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen3" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen3" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="15" optional="true" invertmatch="false" />
+            <numinputfields number="0" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen4" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen4" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="100" optional="true" invertmatch="false" />
+            <numinputfields number="1" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[reset]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <input value="&apos;[reset]1[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen5" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen5" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="100" optional="true" invertmatch="false" />
+            <numinputfields number="1" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;8[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen6" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen6" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="100" optional="true" invertmatch="false" />
+            <numinputfields number="1" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;44[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen7" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen7" entryscreen="false" exitscreen="false" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="46" optional="true" invertmatch="false" />
+            <numinputfields number="8" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="$CIF$" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <input value="&apos;[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <input value="&apos;8[enter]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <boxselection type="SELECT" srow="10" scol="28" erow="10" ecol="29" />
+            <extract name="&apos;Extract&apos;" planetype="TEXT_PLANE" srow="10" scol="28" erow="10" ecol="29" unwrap="false" continuous="false" assigntovar="$date1$" />
+            <input value="&apos;[copy]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <boxselection type="DESELECT" />
+            <boxselection type="SELECT" srow="10" scol="31" erow="10" ecol="32" />
+            <extract name="&apos;Extract&apos;" planetype="TEXT_PLANE" srow="10" scol="31" erow="10" ecol="32" unwrap="false" continuous="false" assigntovar="$date2$" />
+            <input value="&apos;[copy]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <boxselection type="DESELECT" />
+            <boxselection type="SELECT" srow="10" scol="34" erow="10" ecol="37" />
+            <extract name="&apos;Extract&apos;" planetype="TEXT_PLANE" srow="10" scol="34" erow="10" ecol="37" unwrap="false" continuous="false" assigntovar="$date3$" />
+            <input value="&apos;[copy]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <boxselection type="DESELECT" />
+            <varupdate name="$date1$" value="$date1$+1" />
+            <input value="&apos;[tab]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <input value="$date1$" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <input value="$date2$" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <input value="$date3$" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <input value="&apos;[tab][tab][tab]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <if condition="$segmentcode$ == &apos;M&apos;" >
+                  <input value="&apos;M001&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+                  <varupdate name="$segmentname$" value="&apos;Mass(M)&apos;" />
+            </if>
+            <if condition="$segmentcode$ == &apos;K&apos;" >
+                  <input value="&apos;K001&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+                  <varupdate name="$segmentname$" value="&apos;Emerging Affluent(K)&apos;" />
+            </if>
+            <if condition="$segmentcode$ == &apos;P&apos;" >
+                  <input value="&apos;P003&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+                  <varupdate name="$segmentname$" value="&apos;Premier(P)&apos;" />
+            </if>
+            <if condition="$segmentcode$ == &apos;Q&apos;" >
+                  <input value="&apos;Q001&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+                  <varupdate name="$segmentname$" value="&apos;(Q)&apos;" />
+            </if>
+            <if condition="$segmentcode$ == &apos;X&apos;" >
+                  <input value="&apos;X001&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+                  <varupdate name="$segmentname$" value="&apos;PPC Offshore(X)&apos;" />
+            </if>
+            <if condition="$segmentcode$ == &apos;Y&apos;" >
+                  <input value="&apos;Y001&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+                  <varupdate name="$segmentname$" value="&apos;PPC Onshore(Y)&apos;" />
+            </if>
+        </actions>
+        <nextscreens timeout="0" >
+            <nextscreen name="Screen8" />
+        </nextscreens>
+    </screen>
+
+    <screen name="Screen8" entryscreen="false" exitscreen="true" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+            <numfields number="100" optional="true" invertmatch="false" />
+            <numinputfields number="1" optional="true" invertmatch="false" />
+        </description>
+        <actions>
+            <input value="&apos;[enter][pf12][pf3][pf12][pf12][pf12]&apos;" row="0" col="0" movecursor="true" xlatehostkeys="true" encrypted="false" />
+            <message title="&apos;Status&apos;" value="&apos;Successfully changed segment to &apos;+$segmentname$" />
+        </actions>
+        <nextscreens timeout="0" >
+        </nextscreens>
+    </screen>
+
+</HAScript>

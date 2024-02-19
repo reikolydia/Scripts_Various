@@ -1,0 +1,23 @@
+<HAScript name="test" description="test" timeout="60000" pausetime="300" promptall="true" blockinput="true" author="A9002008" creationdate="13-Nov-2020 11:39:44" supressclearevents="false" usevars="true" ignorepauseforenhancedtn="true" delayifnotenhancedtn="0" ignorepausetimeforenhancedtn="true" continueontimeout="false">
+
+    <vars>
+      <create name="$copy1$" type="string" value="0" />
+      <create name="$copypresent$" type="boolean" value="false" />
+      <create name="$a1$" type="integer" value="0" />
+      <create name="$exit$" type="integer" value="0" />
+    </vars>
+
+
+    <screen name="Screen1" entryscreen="true" exitscreen="true" transient="false">
+        <description >
+            <oia status="NOTINHIBITED" optional="false" invertmatch="false" />
+        </description>
+        <actions>
+            <prompt name="&apos;copy 1&apos;" description="" row="0" col="0" len="80" default="" clearfield="true" encrypted="false" movecursor="false" xlatehostkeys="false" assigntovar="$copy1$" varupdateonly="true" required="false" title="&apos;copy 1&apos;" />
+            <runprogram exe="&apos;notepad&apos;" param="" wait="false" assignexitvalue="" />
+        </actions>
+        <nextscreens timeout="0" >
+        </nextscreens>
+    </screen>
+
+</HAScript>

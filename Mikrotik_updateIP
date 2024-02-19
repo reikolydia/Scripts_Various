@@ -1,0 +1,61 @@
+:local IPv4wanInterface1 "RJ45-02-WAN-1"
+:local IPv4wanInterface2 "RJ45-03-WAN-2"
+:log warning message="START: IP UPDATE"
+:global ispname1
+:global ispname2
+
+:if ([/interface get $IPv4wanInterface1 value-name=running] = true) do={
+    /interface comment $IPv4wanInterface1 "$IPv4wanInterface1: UPDATING IP ADDRESSES"
+
+    :local localIP1 [/ip address get [find interface="$IPv4wanInterface1" disabled=no] address]
+    :local externalIP1 ([/tool fetch mode=https output=user url="http://ipinfo.io/ip" as-value]->"data")
+
+    :local asn1 ([/tool fetch mode=https output=user url="https://ipinfo.io/$externalIP/org" as-value]->"data")
+        :set $ispname1 [ :pick "$asn1" 0 ( [ :len "$asn1" ] -1 ) ]
+
+    :for i from=([:len $localIP1] - 1) to=0 do={
+        :if ([:pick $localIP1 $i] = "/") do={
+            :set localIP1 [:pick $localIP1 0 $i]
+        }
+    }
+    :log info "$IPv4wanInterface1 - $ispname1"
+    :log info "$IPv4wanInterface1 - Local IP: $localIP1"
+    :log info "$IPv4wanInterface1 - External IP: $externalIP1"
+    :if ($externalIP1 = $localIP1) do={
+        /interface comment $IPv4wanInterface1 "$IPv4wanInterface1: $ispname1 - [External: $externalIP1]"
+        /ip dhcp-client comment $IPv4wanInterface1 "$ispname1 - [External: $externalIP1]"
+        :log info "$IPv4wanInterface1 - Same IP"
+    }   else {
+        /interface comment $IPv4wanInterface1 "$IPv4wanInterface1: $ispname1 - [External: $externalIP1] (Local: $localIP1)"
+        /ip dhcp-client comment $IPv4wanInterface1 "$ispname1 - [External: $externalIP1] (Local: $localIP1)"
+    }
+}   else={
+    /interface comment $IPv4wanInterface1 ""
+    /ip dhcp-client comment $IPv4wanInterface1 ""
+    :log error "$IPv4wanInterface1 is not currently running, unable to verify and/or update IP."
+}
+
+:if ([/interface get $IPv4wanInterface2 value-name=running] = true) do={
+    /interface comment $IPv4wanInterface2 "$IPv4wanInterface2: UPDATING IP ADDRESSES"
+
+    :local localIP2 [/ip address get [find interface="$IPv4wanInterface2" disabled=no] address]
+
+    :local asn2 ([/tool fetch mode=https output=user url="https://ipinfo.io/$externalIP/org" as-value]->"data")
+        :set $ispname2 [ :pick "$asn2" 0 ( [ :len "$asn2" ] -1 ) ]
+
+    :for i from=([:len $localIP2] - 1) to=0 do={
+        :if ([:pick $localIP2 $i] = "/") do={
+            :set localIP2 [:pick $localIP2 0 $i]
+        }
+    }
+    :log info "$IPv4wanInterface2 - $ispname2"
+    :log info "$IPv4wanInterface2 - IP: $localIP2"
+    /interface comment $IPv4wanInterface2 "$IPv4wanInterface2: $ispname2 - ($localIP2)"
+    /ip dhcp-client comment $IPv4wanInterface2 "$ispname2 - ($localIP2)"
+}   else={
+    /interface comment $IPv4wanInterface2 ""
+    /ip dhcp-client comment $IPv4wanInterface2 ""
+    :log error "$IPv4wanInterface2 is not currently running, unable to verify and/or update IP."
+}
+
+:log warning message="END: IP UPDATE"
