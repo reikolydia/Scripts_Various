@@ -179,7 +179,7 @@ docker_config_backup() {
 
     ## Change this part to suit your rclone config
     # echo "Backing up to Dropbox using rclone.."
-    # rclone copy -P $autocomposedir/$yamlbackupdir docker-yamls:Backup/$yamlbackupdir
+    # rclone copy -P $autocomposedir/$yamlbackupdir docker-yamls:Backup/$yamlbackupdir --tpslimit 12 --tpslimit-burst 0
     
     IFS=$' \t\n'
 }
