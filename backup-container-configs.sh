@@ -174,12 +174,13 @@ docker_config_backup() {
     echo ================================
     echo "Backup completed : $(date +%d-%b-%Y\ %H:%M:%S\ %p\ %Z)" >> $autocomposedir/$yamlbackupdir/backups.log
 
+    echo "Backup completed : $(date +%d-%b-%Y\ %H:%M:%S\ %p\ %Z)"
+    echo "Backup time took : $SECONDS seconds"
+
     ## Change this part to suit your rclone config
     # echo "Backing up to Dropbox using rclone.."
     # rclone copy -P $autocomposedir/$yamlbackupdir docker-yamls:Backup/$yamlbackupdir
     
-    echo "Backup completed : $(date +%d-%b-%Y\ %H:%M:%S\ %p\ %Z)"
-    echo "Backup time took : $SECONDS seconds"
     IFS=$' \t\n'
 }
 
