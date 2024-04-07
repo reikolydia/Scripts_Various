@@ -18,3 +18,10 @@ $ python -m venv backup
 $ source backup/bin/activate
 $ pip install -r requirements.txt
 ```
+
+### Run the script
+
+```bash
+$ sudo chmod +x backup-container-configs.sh
+$ ./backup-container-configs.sh
+```

@@ -164,7 +164,7 @@ docker_config_backup() {
         datefolder=$(date +%Y)/$(date +%m)-$(date +%B)/$(date +%d)
         mkdir -p "$autocomposedir/$yamlbackupdir/$datefolder/${containerID[1]}/${containerID[0]}"
 
-        sudo python3 $autocomposedir/autocompose.py ${containerID[0]} > "$autocomposedir/$yamlbackupdir/$datefolder/${containerID[1]}/${containerID[0]}/$(date +%H-%M-%S\ %p\ %Z).yaml"
+        sudo $autocomposedir/backup/bin/python3 $autocomposedir/autocompose.py ${containerID[0]} > "$autocomposedir/$yamlbackupdir/$datefolder/${containerID[1]}/${containerID[0]}/$(date +%H-%M-%S\ %p\ %Z).yaml"
 
         dockerupcounter=$(expr $dockerupcounter + 1)
         draw_progress_bar $dockerupcounter "$( date "+%r" )| $dockerupcounter on $MAX"
