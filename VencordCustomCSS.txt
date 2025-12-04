@@ -239,9 +239,24 @@ span[class*="timestampInline_"] {
 }
 
 span[class*="timestampInline_"] {
-  font-size: 12px !important;
+  font-size: 13px !important;
+  font-weight: bold;
 }
 
-.timestampVisibleOnHover_c19a55 {
+span[class*="timestampVisibleOnHover"] {
   opacity: 1;
+  font-weight: bold;
+  font-size: 13px !important;
+}
+
+.cozy_c19a55 .timestamp_c19a55 {
+  color: rgba(255,0,0);
+  line-height: 1.375rem;
+  vertical-align: baseline;
+}
+
+.cozy_c19a55 .timestamp_c19a55.alt_c19a55 {
+  color: rgba(255,0,0);
+  margin-inline-end: var(--custom-message-meta-space);
+  text-indent: 0;
 }
