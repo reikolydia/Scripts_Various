@@ -1,0 +1,247 @@
+/* Seamless chatbar */
+@import url("https://nspc911.github.io/themes/vencord/RefreshedSeamlessChatBar.theme.css");
+:root {
+    /* change padding of the bar */
+    --rscb-chat-box-padding: 8px; /* default is 8px for alignment */
+    /* Whether you want the chat to not move up *\
+    \*    and down when someone starts typing   */
+    --rscb-no-jump-chat: 0;
+     /* Whether you want the messages to clip through *\
+     \*  the gap between slowmode and typing people   */
+     --rscb-clip-chat-through-typing-bar: 0;
+}
+
+/* Rounded server icons */
+[class*="closedFolderIconWrapper_"] > [class*="guildIcon_"],
+[data-list-item-id*="guildsnav_"] > [class*="icon_"] {
+    border-radius: 50% !important;
+}
+
+/* Detailed Timestamps */
+span[class*="timestampInline_"] time::before {
+  content: attr(aria-label);
+  font-size: 12px;
+}
+span[class*="timestampInline_"] {
+  font-size: 0px !important;
+}
+
+/* Second row buttons for message input box */
+:where(.visual-refresh) .channelTextArea_f75fb0 .scrollableContainer__74017 {
+    overflow-y: hidden;
+}
+:where(.visual-refresh) .channelTextArea_f75fb0 .scrollableContainer__74017 > div {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0px;
+    justify-content: flex-end;
+}
+:where(.visual-refresh) .channelTextArea_f75fb0 .buttons__74017 {
+    padding-right: 15px;
+    flex-shrink: 3;
+}
+:where(.visual-refresh) .channelTextArea_f75fb0 .textArea__74017 {
+    overflow-y: scroll;
+    max-height: calc( var(--custom-channel-textarea-text-area-max-height) - 55px);
+    order: -1;
+    border-bottom-width: 1px !important;
+    border-bottom-color: var(--border-faint);
+    border-bottom-style: solid;
+}
+:where(.visual-refresh) .channelTextArea_f75fb0 .characterCount__795fb {
+    translate: 0 -55px;
+}
+:where(.visual-refresh) .channelTextArea_f75fb0 .attachWrapper__0923f {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin-left: 15px;
+}
+:where(.visual-refresh) .channelTextArea_f75fb0 .textArea__74017::-webkit-scrollbar {
+    width: 12px;
+}
+:where(.visual-refresh) .channelTextArea_f75fb0 .textArea__74017::-webkit-scrollbar-track {
+    border-radius: 0 8px 8px 0
+}
+:where(.visual-refresh) .channelTextArea_f75fb0 .textArea__74017::-webkit-scrollbar-thumb,
+:where(.visual-refresh) .channelTextArea_f75fb0 .textArea__74017::-webkit-scrollbar-track {
+    background-clip: padding-box;
+    border: 4px solid transparent;
+}
+:where(.visual-refresh) .channelTextArea_f75fb0 .textArea__74017::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--primary-800-hsl) /.6);
+    border-radius: 8px;
+}
+:where(.visual-refresh) .channelTextArea_f75fb0 .textArea__74017 > div > * {
+    margin-left: 58.5px;
+    margin-right: 19px;
+}
+
+/* Titlebar header */
+.title_c38106 {
+  display: none;
+}
+.title_f75fb0 {
+  padding: 0px !important;
+  /* scale: 0.9; */
+  padding-left: 12px !important;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  background: transparent !important;
+  height: var(--custom-app-top-bar-height) !important;
+  min-height: 0px;
+  border: none !important;
+  width: fit-content;
+  /*width: calc(69vw);*/
+}
+.searchBar__97492 {
+  width: 145px;
+}
+.followButton_f75fb0,
+.topicClickTarget__6ec1a {
+  -webkit-app-region: no-drag !important;
+}
+.base_c48ade:has(.bar_c38106[data-windows="true"]) .title_f75fb0 {
+  width: calc(100vw - 240px)!important;
+}
+.children__9293f::after {
+  background: linear-gradient(to right, transparent 0, var(--bg-base-tertiary) 100%)!important;
+}
+.topic__6ec1a {
+  flex: none;
+}
+
+/* Hide chatbox if you have no permissions to post */
+[class*=channelTextAreaDisabled] {
+    display: none!important;
+}
+[class*=channelTextAreaDisabled] {
+    opacity: 0!important;
+    position: absolute!important;
+    height: 0px!important;
+    width: 0px!important;
+    z-index: 0!important;
+}
+
+/* Prevent message quick buttons from overlapping */
+[id^=message-accessories] + [class^=buttonContainer] > [class^=buttons] {
+    top: -27px !important; }
+
+/* Mouse hover box animation */
+:root {
+    --list-item-transition: 0.2s ease;
+}
+.wrapper__2ea32 .link__2ea32 {
+    transition: margin-left var(--list-item-transition);
+}
+.wrapper__2ea32:hover .link__2ea32 {
+    margin-left: 10px;
+}
+.unread__2ea32 {
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+    margin-left: -4px;
+    transition: var(--list-item-transition);
+}
+.wrapper__2ea32:hover .unread__2ea32 {
+    width: 12px;
+    height: 12px;
+    margin-top: -6px;
+    margin-left: 3px;
+    background-color: transparent;
+    background: url('https://cdn.discordapp.com/emojis/1026532993923293184.webp?size=128');
+    background-size: 12px;
+    background-position: center;
+}
+
+/* Collapsible sidebars on hover */
+.visual-refresh [class^="sidebarList_"] {
+  position: fixed; /* Remove if you don't want it to float */
+  width: 150px; /* Set to 0px if you don't want it to float */
+  container-type: unset;
+  opacity: 0%;
+  height: 100%;
+  z-index: 998;
+  left: -70px;
+  filter: drop-shadow(16px 16px 16px #0005) ;
+  transition-property: opacity, left, width;
+  transition-duration: .5s;
+  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.visual-refresh [class^="sidebar_"]:hover [class^="sidebarList_"] {
+  left: 75px;
+  opacity: 100%;
+  top: 30px;
+  width: 300px; /* Set your preferred width here (resize handle is disabled) */
+}
+.visual-refresh [class*="guilds"] {
+  z-index: 999; /* So the sidebar pops from behind the servers */
+}
+.visual-refresh [class^="panels_"] {
+  position: fixed; /* Floating user panel (status, deafen, etc) */
+  width: 60px;
+  z-index: 999;
+  transition: width .5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.visual-refresh [class^="panels_"]:hover {
+  width: 355px;
+  z-index: 9999;
+}
+.visual-refresh [class^="panels_"] [class^="container__"] [class^="buttons__"] {
+  opacity: 0%;
+  scale: 0%; /* Because the buttons can't stay inside the panel on chromium (any help is appreciated) */
+  transition-property: opacity, margin-bottom, scale;
+  transition-duration: .5s;
+  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.visual-refresh .panels__5e434:hover [class^="container__"] [class^="buttons__"] {
+   scale: 100%;
+   opacity: 100%;
+}
+.visual-refresh [class^="sidebarResizeHandle_"] {
+  display: none; /* Set your preferred width in the sidebar settings */
+}
+.visual-refresh [class^="container_"] [class^="membersWrap_"] {
+  position: fixed; /* Remove if you don't want it to float */
+  height: 100%;
+  opacity: 0%;
+  z-index: 999;
+  right: -250px;
+/*top: 80px;  /* Add/change this according to your desktop/client */
+  filter: drop-shadow(-16px -16px 16px #0005) ;
+  transition-property: right, opacity;
+  transition-duration: .5s;
+  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.visual-refresh [class^="container_"] [class^="membersWrap_"]:hover {
+  right: 0px;
+  opacity: 100%;
+}
+
+.user-profile-sidebar {
+  position: fixed; /* Remove if you don't want it to float */
+  height: 100%;
+  opacity: 0%;
+  z-index: 999;
+  right: -335px;
+/*top: 80px;  /* Add/change this according to your desktop/client */
+  filter: drop-shadow(-16px -16px 16px #0005) ;
+  transition-property: right, opacity;
+  transition-duration: .5s;
+  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.user-profile-sidebar:hover {
+  right: 0px;
+  opacity: 100%;
+}
+
+span[class*="timestampInline_"] {
+  font-size: 12px !important;
+}
+
+.timestampVisibleOnHover_c19a55 {
+  opacity: 1;
+}
