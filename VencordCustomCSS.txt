@@ -1,7 +1,9 @@
 /* Compact member list */
 @import url(https://raw.githubusercontent.com/amozeo/discord-css-snippets/refs/heads/main/snippets/compact-memberlist.css);
 /* Compact buttons at home */
-@import url('https://raw.githubusercontent.com/Krammeth/css-snippets/refs/heads/main/CompactButtons.css');
+@import url(https://raw.githubusercontent.com/Krammeth/css-snippets/refs/heads/main/CompactButtons.css);
+/* AMOLED THEME: https://github.com/LuckFire/amoled-cord */
+@import url(https://luckfire.github.io/amoled-cord/src/amoled-cord.css);
 
 /* Timestamp decorators */
 span[class*="c19a557985eb7793-timestampInline"] {
