@@ -1038,13 +1038,13 @@ ul[data-list-id=guildsnav] div:is(.ef3116c2da186559-itemsContainer, .bottomSecti
   width: 52px !important;
 }
 :root[class*="compact"] ._5e434347c823b592-panels:hover {
-  width: 287px !important;
+  width: 337px !important;
 }
 :root[class*="cozy"] ._5e434347c823b592-panels {
   width: 60px!important;
 }
 :root[class*="cozy"] ._5e434347c823b592-panels:hover {
-  width: 287px !important;
+  width: 337px !important;
 }
 /* Default hover */
 ._5e434347c823b592-panels:hover {
