@@ -1,87 +1,64 @@
-/* Seamless chatbar */
-@import url("https://nspc911.github.io/themes/vencord/RefreshedSeamlessChatBar.theme.css");
-:root {
-    /* change padding of the bar */
-    --rscb-chat-box-padding: 8px; /* default is 8px for alignment */
-    /* Whether you want the chat to not move up *\
-    \*    and down when someone starts typing   */
-    --rscb-no-jump-chat: 0;
-     /* Whether you want the messages to clip through *\
-     \*  the gap between slowmode and typing people   */
-     --rscb-clip-chat-through-typing-bar: 0;
+/* Compact member list */
+@import url(https://raw.githubusercontent.com/amozeo/discord-css-snippets/refs/heads/main/snippets/compact-memberlist.css);
+/* Compact buttons at home */
+@import url('https://raw.githubusercontent.com/Krammeth/css-snippets/refs/heads/main/CompactButtons.css');
+
+/* Timestamp decorators */
+span[class*="c19a557985eb7793-timestampInline"] {
+  font-size: 13px !important;
+  font-weight: bold;
+}
+span[class*="timestampVisibleOnHover"] {
+  opacity: 1;
+  font-weight: bold;
+  font-size: 13px !important;
+}
+.c19a557985eb7793-cozy .c19a557985eb7793-timestamp {
+  color: rgba(255,0,0);
+  line-height: 1.375rem;
+  vertical-align: baseline;
+}
+.c19a557985eb7793-cozy .c19a557985eb7793-timestamp.c19a557985eb7793-alt {
+  color: rgba(255,0,0);
+  margin-inline-end: var(--custom-message-meta-space);
+  text-indent: 0;
 }
 
-/* Rounded server icons */
-[class*="closedFolderIconWrapper_"] > [class*="guildIcon_"],
-[data-list-item-id*="guildsnav_"] > [class*="icon_"] {
-    border-radius: 50% !important;
+/* Small Search box thing */
+._974928fe84ca9647-search > ._974928fe84ca9647-searchBar {
+    width: 30px !important;
+    background: none;
+    border-color: transparent;
+    transition: background .25s ease,
+        width .25s ease,
+        border-color .25s ease;
+}
+._974928fe84ca9647-search > ._974928fe84ca9647-searchBar .DraftEditor-root {
+    padding-right: 3px !important
+}
+._974928fe84ca9647-search._974928fe84ca96472-open > ._974928fe84ca9647-searchBar {
+    width: 244px !important;
+}
+._974928fe84ca9647-search > ._974928fe84ca9647-searchBar ._974928fe84ca9647-icon {
+    margin-right: 7px;
+}
+._974928fe84ca9647-search {
+    margin: 0 !important;
 }
 
-/* Detailed Timestamps */
-span[class*="timestampInline_"] time::before {
-  content: attr(aria-label);
-  font-size: 12px;
-}
-span[class*="timestampInline_"] {
-  font-size: 0px !important;
-}
-
-/* Second row buttons for message input box */
-:where(.visual-refresh) .channelTextArea_f75fb0 .scrollableContainer__74017 {
-    overflow-y: hidden;
-}
-:where(.visual-refresh) .channelTextArea_f75fb0 .scrollableContainer__74017 > div {
-    display: flex;
-    flex-wrap: wrap;
-    padding-left: 0px;
-    justify-content: flex-end;
-}
-:where(.visual-refresh) .channelTextArea_f75fb0 .buttons__74017 {
-    padding-right: 15px;
-    flex-shrink: 3;
-}
-:where(.visual-refresh) .channelTextArea_f75fb0 .textArea__74017 {
-    overflow-y: scroll;
-    max-height: calc( var(--custom-channel-textarea-text-area-max-height) - 55px);
-    order: -1;
-    border-bottom-width: 1px !important;
-    border-bottom-color: var(--border-faint);
-    border-bottom-style: solid;
-}
-:where(.visual-refresh) .channelTextArea_f75fb0 .characterCount__795fb {
-    translate: 0 -55px;
-}
-:where(.visual-refresh) .channelTextArea_f75fb0 .attachWrapper__0923f {
-    position: absolute;
-    left: 0;
-    top: 0;
-    margin-left: 15px;
-}
-:where(.visual-refresh) .channelTextArea_f75fb0 .textArea__74017::-webkit-scrollbar {
-    width: 12px;
-}
-:where(.visual-refresh) .channelTextArea_f75fb0 .textArea__74017::-webkit-scrollbar-track {
-    border-radius: 0 8px 8px 0
-}
-:where(.visual-refresh) .channelTextArea_f75fb0 .textArea__74017::-webkit-scrollbar-thumb,
-:where(.visual-refresh) .channelTextArea_f75fb0 .textArea__74017::-webkit-scrollbar-track {
-    background-clip: padding-box;
-    border: 4px solid transparent;
-}
-:where(.visual-refresh) .channelTextArea_f75fb0 .textArea__74017::-webkit-scrollbar-thumb {
-    background-color: hsl(var(--primary-800-hsl) /.6);
-    border-radius: 8px;
-}
-:where(.visual-refresh) .channelTextArea_f75fb0 .textArea__74017 > div > * {
-    margin-left: 58.5px;
-    margin-right: 19px;
+/* Revert the input/output dropdowns */
+[class*="buttons"] [role="switch"] {
+  border-radius: var(--radius-sm);
+  ~ button:not([aria-label="User Settings"]) {
+    display: none;
+  }
 }
 
-/* Titlebar header */
-.title_c38106 {
+/* Titlebar in header */
+.c38106a3f0c3ca76-title {
   display: none;
 }
-.title_f75fb0 {
+.f75fb00fb7356cbe-title {
   padding: 0px !important;
   /* scale: 0.9; */
   padding-left: 12px !important;
@@ -95,20 +72,20 @@ span[class*="timestampInline_"] {
   width: fit-content;
   /*width: calc(69vw);*/
 }
-.searchBar__97492 {
+._974928fe84ca9647-searchBar {
   width: 145px;
 }
-.followButton_f75fb0,
-.topicClickTarget__6ec1a {
+.f75fb00fb7356cbe-followButton,
+._6ec1a06139ec3b27-topicClickTarget {
   -webkit-app-region: no-drag !important;
 }
-.base_c48ade:has(.bar_c38106[data-windows="true"]) .title_f75fb0 {
+._5e434347c823b592-base:has(.c38106a3f0c3ca76-bar[data-windows="true"]) .f75fb00fb7356cbe-title {
   width: calc(100vw - 240px)!important;
 }
-.children__9293f::after {
+._9293f6b2fc12398a-children::after {
   background: linear-gradient(to right, transparent 0, var(--bg-base-tertiary) 100%)!important;
 }
-.topic__6ec1a {
+._6ec1a06139ec3b27-topic {
   flex: none;
 }
 
@@ -132,20 +109,20 @@ span[class*="timestampInline_"] {
 :root {
     --list-item-transition: 0.2s ease;
 }
-.wrapper__2ea32 .link__2ea32 {
+._2ea32c412048f708-wrapper ._2ea32c412048f708-link {
     transition: margin-left var(--list-item-transition);
 }
-.wrapper__2ea32:hover .link__2ea32 {
+._2ea32c412048f708-wrapper:hover ._2ea32c412048f708-link {
     margin-left: 10px;
 }
-.unread__2ea32 {
+._2ea32c412048f708-unread {
     border-radius: 50%;
     width: 8px;
     height: 8px;
     margin-left: -4px;
     transition: var(--list-item-transition);
 }
-.wrapper__2ea32:hover .unread__2ea32 {
+._2ea32c412048f708-wrapper:hover ._2ea32c412048f708-unread {
     width: 12px;
     height: 12px;
     margin-top: -6px;
@@ -156,79 +133,15 @@ span[class*="timestampInline_"] {
     background-position: center;
 }
 
-/* Collapsible sidebars on hover */
-.visual-refresh [class^="sidebarList_"] {
-  position: fixed; /* Remove if you don't want it to float */
-  width: 150px; /* Set to 0px if you don't want it to float */
-  container-type: unset;
-  opacity: 0%;
-  height: 100%;
-  z-index: 998;
-  left: -70px;
-  filter: drop-shadow(16px 16px 16px #0005) ;
-  transition-property: opacity, left, width;
-  transition-duration: .5s;
-  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-.visual-refresh [class^="sidebar_"]:hover [class^="sidebarList_"] {
-  left: 75px;
-  opacity: 100%;
-  top: 30px;
-  width: 300px; /* Set your preferred width here (resize handle is disabled) */
-}
-.visual-refresh [class*="guilds"] {
-  z-index: 999; /* So the sidebar pops from behind the servers */
-}
-.visual-refresh [class^="panels_"] {
-  position: fixed; /* Floating user panel (status, deafen, etc) */
-  width: 60px;
-  z-index: 999;
-  transition: width .5s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-.visual-refresh [class^="panels_"]:hover {
-  width: 355px;
-  z-index: 9999;
-}
-.visual-refresh [class^="panels_"] [class^="container__"] [class^="buttons__"] {
-  opacity: 0%;
-  scale: 0%; /* Because the buttons can't stay inside the panel on chromium (any help is appreciated) */
-  transition-property: opacity, margin-bottom, scale;
-  transition-duration: .5s;
-  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-.visual-refresh .panels__5e434:hover [class^="container__"] [class^="buttons__"] {
-   scale: 100%;
-   opacity: 100%;
-}
-.visual-refresh [class^="sidebarResizeHandle_"] {
-  display: none; /* Set your preferred width in the sidebar settings */
-}
-.visual-refresh [class^="container_"] [class^="membersWrap_"] {
-  position: fixed; /* Remove if you don't want it to float */
-  height: 100%;
-  opacity: 0%;
-  z-index: 999;
-  right: -250px;
-/*top: 80px;  /* Add/change this according to your desktop/client */
-  filter: drop-shadow(-16px -16px 16px #0005) ;
-  transition-property: right, opacity;
-  transition-duration: .5s;
-  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-.visual-refresh [class^="container_"] [class^="membersWrap_"]:hover {
-  right: 0px;
-  opacity: 100%;
-}
-
+/* hide user profile sidebar, allow hover */
 .user-profile-sidebar {
   position: fixed; /* Remove if you don't want it to float */
-  height: 100%;
+  height: 97%;
   opacity: 0%;
   z-index: 999;
-  right: -335px;
-/*top: 80px;  /* Add/change this according to your desktop/client */
-  filter: drop-shadow(-16px -16px 16px #0005) ;
+  right: -330px;
+  /*top: 80px;  /* Add/change this according to your desktop/client */
+  /*filter: drop-shadow(-16px -16px 16px #0005) ;*/
   transition-property: right, opacity;
   transition-duration: .5s;
   transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -238,25 +151,952 @@ span[class*="timestampInline_"] {
   opacity: 100%;
 }
 
-span[class*="timestampInline_"] {
-  font-size: 13px !important;
-  font-weight: bold;
+/* Sidebar cat */
+.user-profile-sidebar::after {
+    /* DIscord's color setup */
+    --profile-gradient-start:  color-mix(in oklab, var(--profile-gradient-overlay-color) 100%, var(--profile-gradient-primary-color));
+    --profile-gradient-end:  color-mix(in oklab, var(--profile-gradient-overlay-color) 100%, var(--profile-gradient-secondary-color));
+    	/* The creatures 2 */
+    content:"      へ              ╱|、\a"
+            "૮ >  < )   ♡    (˚ˎ 。7\a"
+            " /        づ          |、 ˜〵\a"
+            "乀(ˍ, ل ل              じしˍ, )ノ";
+    white-space: pre;
+    inset: 0;
+    padding: 20px;
+    color: white;
+    /* Also discords */
+    background: linear-gradient(var(--profile-gradient-start), var(--profile-gradient-start) var(--custom-user-profile-banner-height), var(--profile-gradient-end));
+    text-align: center;
+    font-size: 150%;
+}
+/* End sidebar cat */
+
+/**
+ * @name Refreshed Seamless Chat Bar
+ * @author NSPG911
+ * @version 1.1.0
+ * @description Moves around elements near the Chat Bar to be seamless with the message bar
+ * @source https://nspc911.github.io/themes/vencord/RefreshedSeamlessChatBar.theme.css
+*/
+:root {
+  /* Custom padding for the chat box */
+  --rscb-chat-box-padding: 8px;
+  /* Whether you want the messages to clip through *\
+  \*  the gap between slowmode and typing people   */
+  --rscb-clip-chat-through-typing-bar: 0;
+  /* certain older themes havent been *\
+  \* updated, use this if necessary   */
+  --rscb-use-fixed-attach-button: 0;
+}
+.visual-refresh .f75fb00fb7356cbe-form {
+  display: flex;
+  flex-direction: column;
+  padding: 4px var(--rscb-chat-box-padding) var(--rscb-chat-box-padding)
+    var(--rscb-chat-box-padding) !important;
+  /* Normal chatbar */
+  .f75fb00fb7356cbe-channelTextArea {
+    margin-bottom: 0px;
+    margin-right: 1px;
+    /* reply bar */
+    ._740174f3d6a2c8fe-stackedBars {
+      border-bottom-color: transparent !important;
+      background-color: var(--chat-background-default);
+    }
+  }
+  /* slowmode bar + typing indicator */
+  .b8880176888cc928-base {
+    border-color: transparent !important;
+    position: static;
+    order: -1;
+    background: transparent !important;
+    background-image: transparent !important;
+    border: 1px solid var(--border-faint);
+    border-bottom: none;
+    border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+    padding-left: 0 !important;
+    transform: translateX(-1px);
+    .b8880176888cc928-typingDots,
+    .b216994de061a9e2-cooldownText {
+      background-color: var(--chat-background-default);
+      height: 24px;
+      padding-right: 8px;
+      padding-left: 8px;
+      border-radius: 8px 8px 0 0;
+      border: 1px solid var(--border-faint) !important;
+      border-bottom-color: transparent !important;
+      /* because they dont have the same position */
+      &.b8880176888cc928-typingDots {
+        flex: unset !important; /* latest build uses flex for some fucking reason */
+        margin-left: 0 !important;
+        &:not(:has(span > strong)) {
+          display: none !important;
+        }
+      }
+      &.b216994de061a9e2-cooldownText {
+        transform: translateY(1px);
+      }
+    }
+  }
+  ._841c8f861f7b2704-threadSuggestionBar {
+    /* fix a certain pixel issue that bugged me to oblivion */
+    border-top: unset !important;
+  }
+  .b77158512e0ab116-channelAttachmentArea {
+    background-color: var(--chat-background-default);
+  }
+  /* the stars of the show, the :has */
+  /* check for typing thing */
+  &:has(> .b8880176888cc928-typing > .b8880176888cc928-typingDots > span > strong)
+    .f75fb00fb7356cbe-channelTextArea {
+    border-top-left-radius: 0 !important;
+  }
+  /* check for cooldown thing */
+  &:has(> .b8880176888cc928-typing > .b216994de061a9e2-cooldownWrapper) .f75fb00fb7356cbe-channelTextArea {
+    border-top-right-radius: 0 !important;
+  }
+  .b216994de061a9e2-cooldownWrapper {
+    padding: 3px 0px 3px 8px;
+    transform: translateX(1px);
+    .b216994de061a9e2-slowModeIcon {
+      margin-left: 0px;
+    }
+  }
+}
+._36d072eab2b2e737-chatGradientBase {
+  display: none !important;
+}
+._36d072eab2b2e737-messagesWrapper:not(
+  :has(+ .f75fb00fb7356cbe-formWithLoadedChatInput > .b8880176888cc928-typing)
+) {
+  margin-bottom: 12px;
+}
+._36d072eab2b2e737-messagesWrapper:has(
+  + .f75fb00fb7356cbe-formWithLoadedChatInput > .b8880176888cc928-typing
+) {
+  ._36d072eab2b2e737-scrollerInner {
+    padding-bottom: calc(var(--rscb-clip-chat-through-typing-bar) * 24px);
+  }
+  ._36d072eab2b2e737-scroller {
+    margin-bottom: calc(12px - var(--rscb-clip-chat-through-typing-bar) * 24px);
+  }
+}
+._36d072eab2b2e737-scrollerSpacer {
+  height: 7px !important;
+}
+.align-chat-input ._0923f156a0410684-attachWrapper {
+  padding: 7px 10px;
+  padding: calc(
+      var(--space-12) * (1 - var(--rscb-use-fixed-attach-button)) +
+        (7px * var(--rscb-use-fixed-attach-button))
+    )
+    calc(
+      (var(--space-md) - 6px) * (1 - var(--rscb-use-fixed-attach-button)) +
+        (10px * var(--rscb-use-fixed-attach-button))
+    );
 }
 
-span[class*="timestampVisibleOnHover"] {
+/* Updated activity panel */
+:root {
+  --bg-color: var(--background-gradient-high, var(--background-base-lowest));
+  --panel-gap: 8px;
+  --panel-radius: 10px;
+  --panel-color: var(--background-gradient-highest, var(--background-base-low));
+  --spotify-image-blur: 4px;
+  --spotify-image-opacity: 0.45;
+  --spotify-image-hover-opacity: 0.7;
+  --order-quests: 0;
+  --order-listening: 1;
+  --order-stream: 2;
+  --order-spotify-player: 3;
+  --order-voice: 4;
+  --order-profile: 5;
+}
+._5e434347c823b592-panels {
+  display: flex;
+  flex-direction: column;
+  gap: var(--panel-gap);
+  background: var(--bg-color);
+  border: none;
+}
+._0d6162a4e6a4b802-mask {
+  order: var(--order-quests);
+  margin-inline: 0;
+  padding-inline: 0;
+  border-radius: var(--panel-radius);
+}
+._0d6162a4e6a4b802-wrapper,
+._0d6162a4e6a4b802-wrapperVisible {
+  border-radius: var(--panel-radius);
+}
+.e0cf275d59896c00-listeningAlong,
+._5dec784a68542d60-panel,
+.e131a99484292a19-container,
+._37e49614b9f110a9-container {
+  background-color: var(--panel-color);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--panel-radius);
+}
+.e0cf275d59896c00-listeningAlong {
+  order: var(--order-listening);
+}
+._5dec784a68542d60-panel {
+  order: var(--order-stream);
+  padding: calc(var(--custom-guild-list-padding) - var(--custom-panels-spacing) + 3px);
+}
+.e131a99484292a19-wrapper {
+  order: var(--order-voice);
+  &:not(:has(.e131a99484292a19-container)) {
+    display: none;
+  }
+  .e131a99484292a19-container {
+    min-height: 90px;
+  }
+}
+._37e49614b9f110a9-container {
+  order: var(--order-profile);
+  min-height: 59px;
+  &:has(.plated_37e49) {
+    border: none;
+  }
+}
+#vc-spotify-player {
+  order: var(--order-spotify-player);
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(to bottom, transparent 0%, var(--panel-color) 100%) !important;
+  border: 1px solid transparent;
+  border-radius: var(--panel-radius);
+  margin: 0 -1px;
+
+  .a562c840daab72a7-barFill {
+    background-color: var(--vc-spotify-green) !important;
+  }
+  .vc-spotify-repeat-context,
+  .vc-spotify-repeat-track,
+  .vc-spotify-shuffle-on {
+    span {
+      color: var(--vc-spotify-green);
+    }
+    svg {
+      fill: var(--vc-spotify-green);
+    }
+  }
+  .vc-spotify-progress-time {
+    margin-top: 10px;
+  }
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transition: all 0.4s ease-out;
+    z-index: -1;
+  }
+  &::before {
+    background: var(--vc-spotify-track-image) center/cover no-repeat;
+    opacity: var(--spotify-image-opacity);
+  }
+  &::after {
+    backdrop-filter: blur(var(--spotify-image-blur));
+  }
+  &:hover::before {
+    opacity: var(--spotify-image-hover-opacity);
+  }
+  &:hover::after {
+    backdrop-filter: blur(0);
+  }
+  > * {
+    filter: drop-shadow(0 0 10px var(--panel-color));
+  }
+}
+/* Username bubble colors */
+:root {
+  --username-vertical-padding: 0;
+  --username-horizontal-padding: 6px;
+  --username-border-radius: 5px;
+  --username-plugin-suffix: "| @";
+}
+.vc-smyn-suffix {
+  color: currentColor;
+  opacity: 0.5;
+  &::before {
+    content: var(--username-plugin-suffix);
+  }
+  &::after {
+    content: "";
+  }
+}
+.c19a557985eb7793-header {
+  margin-bottom: 4px;
+}
+.c19a557985eb7793-username {
+  padding: var(--username-vertical-padding) var(--username-horizontal-padding);
+  border-radius: var(--username-border-radius);
+  text-decoration: none;
+}
+/* Normal Usernames */
+.c19a557985eb7793-username:not(.e5de7811b2777bfa-convenienceGlowGradient) {
+  background: color-mix(in srgb, currentColor 20%, transparent);
+  &:hover {
+    text-decoration: none;
+    background: color-mix(in srgb, currentColor 30%, transparent);
+  }
+}
+/* Gradient Usernames */
+.e5de7811b2777bfa-convenienceGlowGradient {
+  z-index: 0;
+  background-image: linear-gradient(90deg, var(--custom-gradient-color-1), var(--custom-gradient-color-2), var(--custom-gradient-color-3));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  .vc-smyn-suffix {
+    background-image: linear-gradient(90deg, var(--custom-gradient-color-1), var(--custom-gradient-color-2), var(--custom-gradient-color-3));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  &:hover {
+    text-decoration: none !important;
+  }
+  &::before {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    transition: background 0.2s ease;
+    background: linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--custom-gradient-color-1) 20%, transparent),
+      color-mix(in srgb, var(--custom-gradient-color-2) 20%, transparent),
+      color-mix(in srgb, var(--custom-gradient-color-3) 20%, transparent)
+    );
+  }
+  &:hover::before {
+    background: linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--custom-gradient-color-1) 30%, transparent),
+      color-mix(in srgb, var(--custom-gradient-color-2) 30%, transparent),
+      color-mix(in srgb, var(--custom-gradient-color-3) 30%, transparent)
+    );
+  }
+}
+
+/* Chat buttons to a context menu */
+.f75fb00fb7356cbe-form {
+  z-index: 0;
+}
+.b8880176888cc928-base {
+  z-index: -1;
+}
+.f75fb00fb7356cbe-channelTextArea ._740174f3d6a2c8fe-scrollableContainer {
+  overflow: visible;
+}
+.f75fb00fb7356cbe-channelTextArea ._740174f3d6a2c8fe-textArea {
+  height: unset !important;
+  > div {
+    max-height: 144px;
+    overflow: hidden scroll;
+    &::-webkit-scrollbar {
+      width: 12px;
+      height: 12px
+    }
+    &::-webkit-scrollbar-thumb, &::-webkit-scrollbar-track {
+      background-clip: padding-box;
+      border: 4px solid transparent
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: hsl(var(--primary-800-hsl)/.6);
+      border-radius: 8px
+    }
+  }
+}
+/*More Button*/
+.f75fb00fb7356cbe-channelTextArea:not(._740174f3d6a2c8fe-channelTextAreaDisabled) ._740174f3d6a2c8fe-inner {
+  padding-right: 12px;
+  pointer-events: none;
+  > div {
+    pointer-events: all;
+  }
+  &:before {
+    background-color: var(--interactive-text-default);
+    content: "";
+    position: absolute;
+    top: 12px;
+    inset-inline: calc(100% - 44px);
+    height: var(--space-32);
+    width: var(--space-32);
+    pointer-events: none;
+    transition-duration: .2s;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' viewBox='0 0 24 24'%3E%3Cpath fill='currentColor' fill-rule='evenodd' d='M4 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm10-2a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm8 0a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z' clip-rule='evenodd' class=''/%3E%3C/svg%3E") no-repeat center/20px;
+    z-index: 1;
+  }
+  &:after {
+    content: "";
+    display: block;
+    cursor: pointer;
+    border-radius: 8px;
+    height: var(--space-32);
+    margin-top: 12px;
+    min-height: var(--space-32);
+    min-width: var(--space-32);
+    pointer-events: all;
+    transition-duration: .2s;
+  }
+}
+.f75fb00fb7356cbe-channelTextArea ._740174f3d6a2c8fe-inner:hover:not(:has(:hover)) {
+  &:before {
+    background-color: var(--icon-strong);
+  }
+  &:after {
+    background-color: var(--interactive-background-selected);
+  }
+}
+/*Context Menu*/
+.f75fb00fb7356cbe-channelTextArea ._740174f3d6a2c8fe-buttons {
+  position: absolute;
+  background: var(--background-surface-high);
+  background-color: var(--background-surface-higher);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  box-shadow: var(--shadow-high);
+  box-sizing: border-box;
+  flex-direction: column;
+  height: fit-content;
+  gap: 0;
+  min-width: 200px;
+  visibility: hidden;
+  padding: 8px;
+  transition-delay: 99999s;
+  top: unset;
+  bottom: calc(100% - 4px);
+  right: 12px;
+  z-index: 1;
+  > div {
+    width: 100%;
+  }
+}
+.custom-theme-background .f75fb00fb7356cbe-channelTextArea ._740174f3d6a2c8fe-buttons {
+  border-color: var(--border-strong);
+}
+._740174f3d6a2c8fe-inner:active:not(:has(:hover)) ._740174f3d6a2c8fe-buttons {
+  visibility: visible;
+  pointer-events: all;
+  transition-delay: 0s;
+}
+body:active:not(:has(._740174f3d6a2c8fe-inner:hover,._740174f3d6a2c8fe-buttons:hover)) .f75fb00fb7356cbe-channelTextArea ._740174f3d6a2c8fe-buttons {
+  display: none;
+  pointer-events: none;
+  transition-delay: 0s;
+}
+/*Context Buttons*/
+.e6e74fd4d1221f53-buttonContainer {
+  width: 100%;
+  background: none !important;
+}
+.f75fb00fb7356cbe-channelTextArea ._740174f3d6a2c8fe-button, .e6e74fd4d1221f53-button {
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: var(--text-strong);
+  justify-content: left;
+  flex: 1 1 auto;
+  padding: 8px;
+  transition: none;
+  &:hover {
+    background: var(--background-mod-subtle);
+  }
+  &:after {
+    content: attr(aria-label);
+    font-size: 14px;
+    font-weight: var(--font-weight-medium);
+    line-height: 18px;
+    -webkit-margin-start: 8px;
+    margin-inline-start: 8px;
+  }
+  ._5eb9b3cc7c2b1ce8-lottieIcon, .c0c49a3e5c8626ac-iconContainer {
+    width: 24px !important;
+    height: 24px !important;
+  }
+  ._04eede68d145ae81-spriteContainer {
+    --custom-emoji-sprite-size: 24px !important;
+  }
+  ._04eede68d145ae81-spriteGreyscale {
+    background-color: var(--text-strong);
+  }
+}
+.aa63abf63dbd9cce-separator, .aa63abf63dbd9cce-container {
+  display: none;
+}
+
+/**
+ * @name Better Compact Command Menu With Smooth Transition
+ * @author AcheronX.
+ * @description More Compact and clean look with smooth transition
+ * @source https://github.com/acheronx0577/Better-Compact-Command-Menu-With-Smooth-Transition/edit/main/Better%20Compact%20Command%20Menu%20With%20Smooth%20Transition.css
+ * @version 0.0.1
+ * @website https://github.com/acheronx0577
+ */
+/* 🎨 Make category header background transparent */
+.d1405bf11dcfb07a-categoryHeader {
+    background: transparent !important;
+}
+/* 🎨 Transparent hover effect for category header */
+.d1405bf11dcfb07a-categoryHeader:hover {
+    background: transparent !important;
+}
+/* ✨ Main container sizing adjustments */
+._13533e3c5791980f-autocomplete.d1405bf11dcfb07a-outerWrapper {
+  max-height: 600px !important;
+  width: 600px !important;
+  border-radius: 13px;
+}
+/* 🖱️ Scrollable area positioning */
+.affa7e120767dd82-scroller:not(.a21736575ea33af0-videoGrid) {
+top: 0px;
+right: 0px;
+display: block !important;
+visibility: visible !important;
+}
+/* 🌀 Animated item wrapper with cool effects */
+.d1405bf11dcfb07a-itemWrapper {
+  position: relative;
+  border-radius: 1px;
+  overflow: hidden;
+  -webkit-clip-path: inset(0 round 10px);
+  clip-path: inset(0 round 10px);
+  transform: translateZ(0);
+  transition: 
+    border-radius 0.4s cubic-bezier(0.33, 1, 0.68, 1),
+    background 0.4s cubic-bezier(0.33, 1, 0.68, 1),
+    transform 0.4s cubic-bezier(0.33, 1, 0.68, 1),
+    box-shadow 0.4s cubic-bezier(0.33, 1, 0.68, 1);
+}
+/* ✨ Pseudo-element for gradient effect */
+.d1405bf11dcfb07a-itemWrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-clip-path: inset(0 round 1px);
+  clip-path: inset(0 round 1px);
+  transition: 
+    clip-path 0.4s cubic-bezier(0.33, 1, 0.68, 1),
+    background 0.4s cubic-bezier(0.33, 1, 0.68, 1);
+  z-index: -1;
+  background: transparent;
+  pointer-events: none;
+}
+/* 🌈 Hover effects for item wrapper */
+.d1405bf11dcfb07a-itemWrapper:hover {
+  border-radius: 10px;
+  transform: scale(0.98) translateZ(0);
+  box-shadow: 
+    inset 0 0 12px rgba(255, 255, 255, 0.25),
+    0 2px 6px rgba(0, 0, 0, 0.2);
+}
+/* 🌟 Gradient effect on hover */
+.d1405bf11dcfb07a-itemWrapper:hover::before {
+  -webkit-clip-path: inset(1px round 10px);
+  clip-path: inset(1px round 10px);
+  background: linear-gradient(
+    to right,
+    rgba(87, 45, 133, 0.8) 0%,
+    rgba(45, 52, 139, 1) 50%,
+    rgba(87, 45, 133, 0.8) 100%
+  );
+}
+/* ⚪ White text on hover */
+.d1405bf11dcfb07a-itemWrapper:hover ._920abe02ba8772be-title,
+.d1405bf11dcfb07a-itemWrapper:hover ._920abe02ba8772be-description,
+.d1405bf11dcfb07a-itemWrapper:hover ._920abe02ba8772be-source {
+  color: white !important;
+}
+/* 🚫 Fix overflow issues */
+._13533e3c5791980f-autocompleteRowVertical,
+._13533e3c5791980f-base {
+  overflow: visible !important;
+
+}
+/* 🌈 Dark semi-transparent background for stacked bars */
+._740174f3d6a2c8fe-stackedBars {
+    background-color: rgba(9, 13, 15, 0.345) !important;
+}
+/* 🎨 Same background for option pills */
+._1464f16f3e3c14a9-optionPillKey {
+    background-color: rgba(9, 13, 15, 0.345) !important;
+}
+/* 🏷️ Semi-transparent header background with compact styling */
+._13533e3c5791980f-contentTitle {
+    background: rgba(11, 6, 29, 0.334) !important;
+    padding: 4px 8px !important;
+    border-radius: 7px !important;
+    display: inline-block !important; /* Prevents full-width background */
+    margin-left: 8px !important; /* ↔️ Adds left spacing */
+}
+/* ✨ Force white text for default color classes (improves readability) */
+._4bd5201c86a2042b-defaultColor, ._5345c24c6249bc5b-defaultColor {
+    color: rgba(255, 255, 255, 0.885) !important;
+}
+/* 🎪 Autocomplete Container */
+._13533e3c5791980f-autocomplete._6b0e07cbaf13ec4e-autocomplete {
+  max-height: 600px !important;
+  width: 500px !important;
+  border-radius: 13px;
+}
+/* 🖱️ Clickable Row (Base) */
+._13533e3c5791980f-clickable._13533e3c5791980f-autocompleteRowVertical {
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+  -webkit-clip-path: inset(0 7px 0 7px round 9px);
+  clip-path: inset(0 7px 0 7px round 9px);
+  transform: translateZ(0);
+  transition: 
+    border-radius 0.4s cubic-bezier(0.33, 1, 0.68, 1),
+    background 0.4s cubic-bezier(0.33, 1, 0.68, 1),
+    transform 0.4s cubic-bezier(0.33, 1, 0.68, 1),
+    box-shadow 0.4s cubic-bezier(0.33, 1, 0.68, 1),
+    clip-path 0.4s cubic-bezier(0.33, 1, 0.68, 1);
+}
+/* 📦 Inner Wrapper */
+._920abe02ba8772be-wrapper {
+  padding: 0px 8px 0px 8px !important;
+}
+/* ✨ Gradient Overlay (Pseudo-element) */
+._13533e3c5791980f-clickable._13533e3c5791980f-autocompleteRowVertical::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  clip-path: inset(0 round 1px);
+  transition: 
+    clip-path 0.4s cubic-bezier(0.33, 1, 0.68, 1),
+    background 0.4s cubic-bezier(0.33, 1, 0.68, 1);
+  z-index: -1;
+  background: transparent;
+  pointer-events: none;
+}
+/* 🌈 Hover Effects */
+._13533e3c5791980f-clickable._13533e3c5791980f-autocompleteRowVertical:hover {
+  border-radius: 10px;
+  transform: scale(0.98) translateZ(0);
+  box-shadow: 
+    inset 0 0 12px rgba(255, 255, 255, 0.25),
+    0 2px 6px rgba(0, 0, 0, 0.2);
+}
+/* 🌟 Gradient on Hover */
+._13533e3c5791980f-clickable._13533e3c5791980f-autocompleteRowVertical:hover::before {
+  clip-path: inset(1px round 10px);
+  background: linear-gradient(
+    to right,
+    rgba(87, 45, 133, 0.8) 0%,
+    rgba(45, 52, 139, 1) 50%,
+    rgba(87, 45, 133, 0.8) 100%
+  );
+}
+/* ⚪ White Text on Hover/Selection */
+._13533e3c5791980f-clickable._13533e3c5791980f-autocompleteRowVertical:hover ._920abe02ba8772be-title,
+._13533e3c5791980f-clickable._13533e3c5791980f-autocompleteRowVertical:hover ._920abe02ba8772be-description,
+._13533e3c5791980f-clickable._13533e3c5791980f-autocompleteRowVertical:hover ._920abe02ba8772be-source,
+._13533e3c5791980f-clickable._13533e3c5791980f-autocompleteRowVertical[aria-selected="true"] ._920abe02ba8772be-title,
+._13533e3c5791980f-clickable._13533e3c5791980f-autocompleteRowVertical[aria-selected="true"] ._920abe02ba8772be-description,
+._13533e3c5791980f-clickable._13533e3c5791980f-autocompleteRowVertical[aria-selected="true"] ._920abe02ba8772be-source {
+  color: white !important;
+}
+/* 🎯 Selected State */
+._13533e3c5791980f-clickable._13533e3c5791980f-autocompleteRowVertical[aria-selected="true"] {
+  border-radius: 10px;
+  transform: scale(0.98) translateZ(0);
+}
+._13533e3c5791980f-clickable._13533e3c5791980f-autocompleteRowVertical[aria-selected="true"]::before {
+  clip-path: inset(1px round 10px);
+  background: linear-gradient(
+    to right,
+    rgba(87, 45, 133, 0.8) 0%,
+    rgba(45, 52, 139, 1) 50%,
+    rgba(87, 45, 133, 0.8) 100%
+  );
+}
+
+/* Animated Control buttons */
+.c38106a3f0c3ca76-winButton {
+    position: relative !important;
+    background-color: transparent !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+.c38106a3f0c3ca76-winButtons {
+    gap: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+}
+.c38106a3f0c3ca76-winButton svg {
+    opacity: 0 !important;
+    display: none !important;
+}
+.c38106a3f0c3ca76-winButton::before {
+    content: "" !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-weight: bold !important;
+    width: 14px !important;
+    height: 14px !important;
+    transition: color 0.3s ease, text-shadow 0.7s ease, transform 0.7s ease-in-out, filter 0.7s ease !important;
+    position: absolute !important;
+    transform: translate(-50%, -50%) !important;
+}
+.c38106a3f0c3ca76-winButtonClose::before {
+    content: "✖" !important;
+    color: #d83a42 !important; /* Red color */
+    top: 53% !important;
+    font-size: 20px !important;
+    left: 50% !important;
+    font-weight: normal !important; /* Fixed weight */
+    text-shadow: 0 0 3px #d83a42 !important; /* Light outline for stability */
+    will-change: transform !important; /* Optimization for animation */
+    transform: translate(-50%, -50%) !important;
+}
+.c38106a3f0c3ca76-winButtonClose:hover::before {
+    color: #d83a42 !important; /* Brighter red on hover */
+    text-shadow: 
+    0 0 5px #ff3b44cc,
+    0 0 10px #ff3b4499,
+    0 0 15px #ff3b4480,
+    0 0 20px #ff3b4466,
+    0 0 25px #ff3b444d,
+    0 0 30px #ff3b4433 !important;
+    filter: brightness(1.1) !important;
+    transform: translate(-50%, -50%) rotate(180deg) !important; /* Rotation animation */
+}
+.c38106a3f0c3ca76-winButtonMinMax:nth-child(1)::before {
+    content: "⚋" !important;
+    color: #faa61a !important; /* Yellow color */
+    top: 55% !important;
+    font-size: 20px !important;
+    left: 50% !important;
+    -webkit-text-stroke: 0.5px #faa61a !important; /* Fix outline */
+    text-rendering: geometricPrecision !important;
+    will-change: transform !important; /* Optimization for animation */
+    text-shadow: 0 0 3px #faa61a !important; /* Light outline for stability */
+}
+.c38106a3f0c3ca76-winButtonMinMax:nth-child(1):hover::before {
+    color: #faa61a !important;
+    text-shadow: 
+        0 0 5px #faa61a,
+        0 0 10px #b3760f,
+        0 0 15px #c98105,
+        0 0 20px #b17307,
+        0 0 25px #996606b6,
+        0 0 30px #9663059a !important;
+    filter: brightness(1.2) !important;
+    transform: translate(-50%, -50%) rotate(180deg) !important;
+}
+.c38106a3f0c3ca76-winButtonMinMax:nth-child(2)::before {
+    content: "⛶" !important;
+    color: #23a55a !important; /* Green color */
+    top: 55% !important;
+    font-size: 20px !important;
+    left: 50% !important;
+    -webkit-text-stroke: 0.5px #23a55a !important; /* Fix outline */
+    text-rendering: geometricPrecision !important;
+    will-change: transform !important; /* Optimization for animation */
+    text-shadow: 0 0 3px #23a55a !important; /* Light outline for stability */
+}
+.c38106a3f0c3ca76-winButtonMinMax:nth-child(2):hover::before {
+    color: #2ecc71 !important;
+    text-shadow: 
+        0 0 5px #2ecc71cc,
+        0 0 10px #2ecc7199,
+        0 0 15px #2ecc7180,
+        0 0 20px #2ecc7166,
+        0 0 25px #2ecc714d,
+        0 0 30px #2ecc7133 !important;
+    filter: brightness(1.2) !important;
+    transform: translate(-50%, -50%) rotate(180deg) !important;
+}
+@container body style(--custom-window-controls: off) and style(--top-bar-button-position: titlebar) {
+    .visual-refresh .c38106a3f0c3ca76-winButton {
+        border-radius: 0 !important;
+    }
+    .visual-refresh .c38106a3f0c3ca76-winButtons {
+        gap: 0 !important;
+    }
+}
+
+/* Hover spotify player */
+:root {
+    /* Only include this part if you wish to change these variables */
+    /* To disable the border, you can change the transparency to 0 */
+    --user-area-border-width: 1.5px;
+    --user-area-border-color: rgba(121, 227, 121, 0.5);
+}
+.visual-refresh ._5e434347c823b592-panels .e131a99484292a19-wrapper {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    will-change: transform, opacity;
+    transform: translateY(5px);
+    transition:
+        max-height  0.15s ease 0.15s,
+        transform 0.15s ease 0.155s,
+        opacity 0.3s ease 0.15s;
+}
+.visual-refresh ._5e434347c823b592-panels ._37e49614b9f110a9-container {
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    border: var(--user-area-border-width) solid var(--user-area-border-color);
+    z-index: 2000;
+}
+#vc-spotify-player {
+  max-height: 0;
+  opacity: 0;
+  padding: 0 !important;
+  overflow: hidden;
+  will-change: transform, opacity;
+  transform: translateY(5px);
+  margin: 0 !important;
+  transition:
+    max-height 0.15s ease 0.15s,
+    padding    0s ease  0.25s,
+    transform 0.15s ease 0.155s,
+    opacity 0.3s ease 0.15s;
+}
+.visual-refresh ._5e434347c823b592-panels:hover .e131a99484292a19-wrapper,
+.visual-refresh .panels_c48a9 .e131a99484292a19-wrapper:hover,
+#vc-spotify-player:hover,
+.visual-refresh ._5e434347c823b592-panels:hover #vc-spotify-player,
+.visual-refresh .panels_c48a9 .e131a99484292a19-wrapper:hover #vc-spotify-player {
+  max-height: 450px !important;
+  transform: translateY(0px);
   opacity: 1;
-  font-weight: bold;
-  font-size: 13px !important;
+  transition: max-height 0s ease;
+}
+#vc-spotify-player:hover,
+.visual-refresh ._5e434347c823b592-panels:hover #vc-spotify-player,
+.visual-refresh .panels_c48a9 .e131a99484292a19-wrapper:hover #vc-spotify-player {
+    padding: 12px !important;
 }
 
-.cozy_c19a55 .timestamp_c19a55 {
-  color: rgba(255,0,0);
-  line-height: 1.375rem;
-  vertical-align: baseline;
+/* Folder scroll bar */
+ul[data-list-id=guildsnav] div:is(.ef3116c2da186559-itemsContainer, .bottomSection_ef3116)>div.ef3116c2da186559-scroller:hover {
+    &::-webkit-scrollbar {
+        height: 8px;
+        width: 8px;
+    }
+    &::-webkit-scrollbar-track {
+        background-color: var(--scrollbar-thin-track);
+        border: 2px solid var(--scrollbar-thin-track);
+        border-color: var(--scrollbar-thin-track);
+    }
+    &::-webkit-scrollbar-thumb {
+        background-clip: padding-box;
+        background-color: var(--scrollbar-thin-thumb);
+        border: 2px solid transparent;
+        border-radius: 4px;
+        min-height: 40px;
+    }
+    &::-webkit-scrollbar-corner {
+        background-color: transparent;
+    }
+}
+.theme-dark.custom-theme-background ul[data-list-id=guildsnav] div:is(.ef3116c2da186559-itemsContainer, .bottomSection_ef3116)>div.ef3116c2da186559-scroller.customTheme__99f8c {
+    &::-webkit-scrollbar-thumb {
+        background-image: linear-gradient(rgb(var(--bg-overlay-color-inverse)/var(--bg-overlay-opacity-4)), rgb(var(--bg-overlay-color-inverse)/var(--bg-overlay-opacity-4))), var(--custom-theme-background);
+        background-size: 200vh;
+    }
+}
+.theme-light.custom-theme-background ul[data-list-id=guildsnav] div:is(.ef3116c2da186559-itemsContainer, .bottomSection_ef3116)>div.ef3116c2da186559-scroller.customTheme__99f8c {
+    &::-webkit-scrollbar-thumb {
+        background-image: rgb(var(--bg-overlay-color-inverse)/var(--bg-overlay-opacity-6)), rgb(var(--bg-overlay-color)/var(--bg-overlay-opacity-3));
+        background-size: 100vh;
+    }
 }
 
-.cozy_c19a55 .timestamp_c19a55.alt_c19a55 {
-  color: rgba(255,0,0);
-  margin-inline-end: var(--custom-message-meta-space);
-  text-indent: 0;
+/* MINIMAL USER AREA */
+._5e434347c823b592-panels {
+  left: 7px !important;
+  height: 58px!important;
+  width: 58px!important;
+  border-radius: 30px!important;
+  display: flex!important;
+  flex-direction: column;
+  overflow: hidden;
+  transition-duration: 0.35s;
+  z-index: 50000;
+  pointer-events: all;
+  border: 1px solid var(--border-subtle)!important;
+ &:has(._37e49614b9f110a9-container) {
+  border: 1px solid var(--border-normal);
+ }
 }
+:root[class*="compact"] ._5e434347c823b592-panels {
+  width: 52px !important;
+}
+:root[class*="compact"] ._5e434347c823b592-panels:hover {
+  width: 287px !important;
+}
+:root[class*="cozy"] ._5e434347c823b592-panels {
+  width: 60px!important;
+}
+:root[class*="cozy"] ._5e434347c823b592-panels:hover {
+  width: 287px !important;
+}
+/* Default hover */
+._5e434347c823b592-panels:hover {
+  width: 323px!important;
+  height: auto!important;
+  display: flex!important;
+  flex-direction: column;
+  border-radius: 10px!important;
+  filter: drop-shadow(7px 7px 7px rgba(0, 0, 0, 0.123)) ;
+  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  .e131a99484292a19-wrapper {
+    height: auto!important;
+  }
+}
+.e131a99484292a19-wrapper {
+  height: 0;
+  overflow: hidden;
+}
+._5e434347c823b592-panels:not(:hover) #vc-spotify-player {
+  display: none;
+}
+._5e434347c823b592-panels:not(:hover) [class*="activity"] {
+  display: none !important;
+}
+._5e434347c823b592-sidebar {
+  overflow: visible!important;
+}
+._2637a2609f343032-container {
+  padding-bottom: 0px!important;
+}
+.ef3116c2da186559-scroller {
+  margin-bottom: 0px!important;
+}
+._7aaec78b97ff00f7-container {
+  bottom: 0px!important;
+}
+.visual-refresh [class$="panels"] [class$="container"] [class$="buttons"] {
+  opacity: 0;
+  transform: scale(0);
+  transform-origin: left;
+  transition: opacity 0.1s ease-in, transform 0.1s ease-in;
+  will-change: opacity, transform;
+}
+.visual-refresh [class$="panels"]:hover [class$="container"] [class$="buttons"] {
+  transform: scale(1);
+  opacity: 1;
+}
+.visual-refresh .panel__37e49 {
+  display: none;
+}
+.visual-refresh [class$="panels"]:hover .panel__37e49 {
+  display: block;
+}
+
+
